@@ -1,38 +1,54 @@
-.App {
+@font-face{
+  font-family: COMFORTAA;
+  src: url('../public/fonts/Comfortaa_Regular.ttf')
+}
+
+@font-face{
+  font-family: COMFORTAA_BOLD;
+  src: url('../public/fonts/Comfortaa_Bold.ttf')
+}
+
+
+body
+{
+  font-family: COMFORTAA;
+  margin: 0;
+}
+
+h1
+{
+  font-family: COMFORTAA_BOLD;
+  background-color: #DC6333;
+  padding: 5px;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.profile
+{
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.letterTile
+{
+  height: 80px;
+  width: 90%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  position: relative;
+  border: 2px solid #DC6333;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.letter
+{
+  position: absolute;
+  margin: auto;
+  top: 35%;
+  left: 0;
+  right: 0;
+  font-size: 2em;
 }

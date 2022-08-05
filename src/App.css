@@ -43,6 +43,27 @@ h1
   cursor: pointer;
 }
 
+.letterTile:hover
+{
+  background-color: #DC6333;
+  color: white;
+}
+
+.letterTileSelected
+{
+  height: 80px;
+  width: 90%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  position: relative;
+  border: 2px solid #DC6333;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: #DC6333;
+  color: white;
+}
+
 .letter
 {
   position: absolute;

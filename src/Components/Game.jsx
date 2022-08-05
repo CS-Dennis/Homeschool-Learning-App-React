@@ -320,8 +320,8 @@ export default function Game() {
                 <Grid key={gameLetter.index} item lg={2} md={3} sm={4} xs={6}>
                   <Box className="letterTile" onClick={()=>clickGameLetter(gameLetter.index)}>
                     <div className="letter">
-                      {gameLetter.letter.toLocaleUpperCase()} {gameLetter.letter!=="" && 
-                       <span>({gameLetter.letter})</span>}
+                      {gameLetter.letter.toLocaleUpperCase()} {gameLetter.letter!=="" ? 
+                       <span>({gameLetter.letter})</span> : <img className="cat" src="./imgs/cat.png" ></img>}
                     </div>
                   </Box>
                 </Grid>
@@ -334,7 +334,7 @@ export default function Game() {
           <Grid container>
               {missingLetters.map((missingLetter) => (
                 <Grid key={missingLetter.index} item md={4} sm={6} xs={12}>
-                  <Box className={missingLetter.selected ? "letterTileSelected": "letterTile"} onClick={()=>selectMissingLetter(missingLetter.index)}>
+                  <Box className={missingLetter.selected ? "missingLetterTileSelected": "missingLetterTile"} onClick={()=>selectMissingLetter(missingLetter.index)}>
                     <div className="letter">
                       {missingLetter.letter.toLocaleUpperCase()} <span>({missingLetter.letter})</span>
                     </div>

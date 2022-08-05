@@ -32,6 +32,7 @@ h1
 
 .letterTile
 {
+  user-select: none;
   height: 80px;
   width: 90%;
   margin: auto;
@@ -51,6 +52,7 @@ h1
 
 .letterTileSelected
 {
+  user-select: none;
   height: 80px;
   width: 90%;
   margin: auto;
@@ -64,12 +66,51 @@ h1
   color: white;
 }
 
-.letter
+.missingLetterTile
 {
-  position: absolute;
+  user-select: none;
+  height: 80px;
+  width: 90%;
   margin: auto;
-  top: 35%;
   left: 0;
   right: 0;
+  position: relative;
+  border: 2px solid #20b1aa;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.missingLetterTile:hover
+{
+  background-color: #20b1aa;
+  color: white;
+}
+
+.missingLetterTileSelected
+{
+  user-select: none;
+  height: 80px;
+  width: 90%;
+  /* position: relative; */
+  border: 2px solid #20b1aa;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: #20b1aa;
+  color: white;
+}
+
+.letter
+{
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   font-size: 2em;
+}
+
+.cat
+{
+  max-width: 100%;
+  max-height: 100%;
 }

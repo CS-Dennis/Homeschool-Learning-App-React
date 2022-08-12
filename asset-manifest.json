@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/alphabet-learning-app-react/static/css/main.246c7aba.css",
-    "main.js": "/alphabet-learning-app-react/static/js/main.b8260a27.js",
-    "static/media/Comfortaa_Regular.ttf": "/alphabet-learning-app-react/static/media/Comfortaa_Regular.80953f5ca18baa2cac23.ttf",
-    "static/media/Comfortaa_Bold.ttf": "/alphabet-learning-app-react/static/media/Comfortaa_Bold.2890d5857ce137df34b5.ttf",
-    "index.html": "/alphabet-learning-app-react/index.html",
-    "main.246c7aba.css.map": "/alphabet-learning-app-react/static/css/main.246c7aba.css.map",
-    "main.b8260a27.js.map": "/alphabet-learning-app-react/static/js/main.b8260a27.js.map"
+    "main.css": "/static/css/main.c0a2dcc2.css",
+    "main.js": "/static/js/main.b8260a27.js",
+    "static/media/Comfortaa_Regular.ttf": "/static/media/Comfortaa_Regular.80953f5ca18baa2cac23.ttf",
+    "static/media/Comfortaa_Bold.ttf": "/static/media/Comfortaa_Bold.2890d5857ce137df34b5.ttf",
+    "index.html": "/index.html",
+    "main.c0a2dcc2.css.map": "/static/css/main.c0a2dcc2.css.map",
+    "main.b8260a27.js.map": "/static/js/main.b8260a27.js.map"
   },
   "entrypoints": [
-    "static/css/main.246c7aba.css",
+    "static/css/main.c0a2dcc2.css",
     "static/js/main.b8260a27.js"
   ]
 }

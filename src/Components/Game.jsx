@@ -166,7 +166,7 @@ export default function Game() {
     });
 
     setMissingLetters([...missingLetters]);
-    console.log(missingLetters);
+    // console.log(missingLetters);
   }
 
   // close snackbar function

@@ -79,7 +79,7 @@ export default function Home() {
       </Grid>
 
       <Dialog open={profileDialog} onClose={() => closeProfileDialog()}>
-        <img src={profileSource} style={{width: "100%", height: "auto"}}></img>
+        <img src={profileSource} style={{width: "100%", height: "auto"}} alt="profile"></img>
       </Dialog>
     </>
   );

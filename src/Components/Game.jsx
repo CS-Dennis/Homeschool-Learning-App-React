@@ -1,8 +1,18 @@
-import { Avatar, Box, Button, Dialog, Divider, Grid, Slider, Snackbar } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  Dialog,
+  Divider,
+  Grid,
+  Slider,
+  Snackbar,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import Header from "./Header";
 import { useNavigate } from "react-router-dom";
+import { height } from "@mui/system";
 
 export default function Game() {
   const navi = useNavigate();
@@ -14,6 +24,10 @@ export default function Game() {
   function changeLevel(e) {
     setLevel(e.target.value);
   }
+
+  const [bingo, setBingo] = useState(false);
+  const [congrats, setCongrats] = useState(false);
+  const [niceTry, setNiceTry] = useState(false);
 
   const allLetters = [
     { index: 0, letter: "a" },
@@ -53,8 +67,8 @@ export default function Game() {
   // toggle the 26 alphabets before and when game starts
   const [gameStarted, setGameStarted] = useState(false);
 
-  // 
-  const [snackbar, setSnackbar] = useState({open:false, message: ""});
+  //
+  const [snackbar, setSnackbar] = useState({ open: false, message: "" });
 
   function startGame() {
     console.log(level);
@@ -76,57 +90,161 @@ export default function Game() {
     missingLetterArray.forEach((letterIndex) => {
       // console.log(letterIndex);
       if (letterIndex === 0) {
-        missingLetters.push({ index: letterIndex, letter: "a", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "a",
+          selected: false,
+        });
       } else if (letterIndex === 1) {
-        missingLetters.push({ index: letterIndex, letter: "b", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "b",
+          selected: false,
+        });
       } else if (letterIndex === 2) {
-        missingLetters.push({ index: letterIndex, letter: "c", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "c",
+          selected: false,
+        });
       } else if (letterIndex === 3) {
-        missingLetters.push({ index: letterIndex, letter: "d", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "d",
+          selected: false,
+        });
       } else if (letterIndex === 4) {
-        missingLetters.push({ index: letterIndex, letter: "e", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "e",
+          selected: false,
+        });
       } else if (letterIndex === 5) {
-        missingLetters.push({ index: letterIndex, letter: "f", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "f",
+          selected: false,
+        });
       } else if (letterIndex === 6) {
-        missingLetters.push({ index: letterIndex, letter: "g", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "g",
+          selected: false,
+        });
       } else if (letterIndex === 7) {
-        missingLetters.push({ index: letterIndex, letter: "h", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "h",
+          selected: false,
+        });
       } else if (letterIndex === 8) {
-        missingLetters.push({ index: letterIndex, letter: "i", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "i",
+          selected: false,
+        });
       } else if (letterIndex === 9) {
-        missingLetters.push({ index: letterIndex, letter: "j", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "j",
+          selected: false,
+        });
       } else if (letterIndex === 10) {
-        missingLetters.push({ index: letterIndex, letter: "k", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "k",
+          selected: false,
+        });
       } else if (letterIndex === 11) {
-        missingLetters.push({ index: letterIndex, letter: "l", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "l",
+          selected: false,
+        });
       } else if (letterIndex === 12) {
-        missingLetters.push({ index: letterIndex, letter: "m", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "m",
+          selected: false,
+        });
       } else if (letterIndex === 13) {
-        missingLetters.push({ index: letterIndex, letter: "n", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "n",
+          selected: false,
+        });
       } else if (letterIndex === 14) {
-        missingLetters.push({ index: letterIndex, letter: "o", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "o",
+          selected: false,
+        });
       } else if (letterIndex === 15) {
-        missingLetters.push({ index: letterIndex, letter: "p", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "p",
+          selected: false,
+        });
       } else if (letterIndex === 16) {
-        missingLetters.push({ index: letterIndex, letter: "q", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "q",
+          selected: false,
+        });
       } else if (letterIndex === 17) {
-        missingLetters.push({ index: letterIndex, letter: "r", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "r",
+          selected: false,
+        });
       } else if (letterIndex === 18) {
-        missingLetters.push({ index: letterIndex, letter: "s", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "s",
+          selected: false,
+        });
       } else if (letterIndex === 19) {
-        missingLetters.push({ index: letterIndex, letter: "t", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "t",
+          selected: false,
+        });
       } else if (letterIndex === 20) {
-        missingLetters.push({ index: letterIndex, letter: "u", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "u",
+          selected: false,
+        });
       } else if (letterIndex === 21) {
-        missingLetters.push({ index: letterIndex, letter: "v", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "v",
+          selected: false,
+        });
       } else if (letterIndex === 22) {
-        missingLetters.push({ index: letterIndex, letter: "w", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "w",
+          selected: false,
+        });
       } else if (letterIndex === 23) {
-        missingLetters.push({ index: letterIndex, letter: "x", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "x",
+          selected: false,
+        });
       } else if (letterIndex === 24) {
-        missingLetters.push({ index: letterIndex, letter: "y", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "y",
+          selected: false,
+        });
       } else if (letterIndex === 25) {
-        missingLetters.push({ index: letterIndex, letter: "z", selected: false });
+        missingLetters.push({
+          index: letterIndex,
+          letter: "z",
+          selected: false,
+        });
       }
     });
 
@@ -151,16 +269,11 @@ export default function Game() {
   }
 
   // once click on a missing letter, set that missingLetter object selected: true, and set others false.
-  function selectMissingLetter(index)
-  {
-    missingLetters.forEach((missingLetter)=>
-    {
-      if(missingLetter.index === index)
-      {
+  function selectMissingLetter(index) {
+    missingLetters.forEach((missingLetter) => {
+      if (missingLetter.index === index) {
         missingLetter.selected = true;
-      }
-      else
-      {
+      } else {
         missingLetter.selected = false;
       }
     });
@@ -170,37 +283,35 @@ export default function Game() {
   }
 
   // close snackbar function
-  function closeSnackbar()
-  {
-    setSnackbar({open: false, message:""});
+  function closeSnackbar() {
+    setSnackbar({ open: false, message: "" });
   }
 
   // click on the game letter, if none missing letter or non-missing game letter is selected, show warning; if the clicked missing game letter matches the missing letter selected,
   // show the missing game letter and remove the missing letter from the missingLetters array.
-  function clickGameLetter(index)
-  {
+  function clickGameLetter(index) {
     console.log(index);
 
     // get the selected missing letter
     let selectedMissingLetter = {};
 
-    missingLetters.forEach(missingLetter => {
-      if(missingLetter.selected)
-      {
+    missingLetters.forEach((missingLetter) => {
+      if (missingLetter.selected) {
         selectedMissingLetter = missingLetter;
       }
     });
-    
+
     // if none missing letter selected, show an alert
-    if(selectedMissingLetter.index===undefined)
-    {
-      setSnackbar({open: true, message: "Please select a missing letter first."});
+    if (selectedMissingLetter.index === undefined) {
+      setSnackbar({
+        open: true,
+        message: "Please select a missing letter first.",
+      });
       return;
     }
 
     // compare indexes of the clicked game letter and the selected missing letter
-    if(index === selectedMissingLetter.index)
-    {
+    if (index === selectedMissingLetter.index) {
       console.log(selectedMissingLetter.letter);
 
       // add that letter to gameLetters Array based on index
@@ -210,29 +321,42 @@ export default function Game() {
       // remove that missing letter obj from the missingLetter array.
       let indexMissingLetter = 0;
       for (let i = 0; i < missingLetters.length; i++) {
-        if(missingLetters[i].index===index)
-        {
+        if (missingLetters[i].index === index) {
           indexMissingLetter = i;
           break;
-        }        
+        }
       }
       // console.log("index of missing letter");
       // console.log(indexMissingLetter);
-      missingLetters = missingLetters.slice(0, indexMissingLetter).concat(missingLetters.slice(indexMissingLetter+1, missingLetters.length));
+      missingLetters = missingLetters
+        .slice(0, indexMissingLetter)
+        .concat(
+          missingLetters.slice(indexMissingLetter + 1, missingLetters.length)
+        );
       setMissingLetters([...missingLetters]);
       // setMissingLetters([...missingLetters]);
-      console.log("Right");
-    }
-    else
-    {
-      setSnackbar({open: true, message: "Not correct, please try again."});
-      return;
-    }
+      // console.log("Right");
+      // if missingLetters length is 0, game is won
+      if (missingLetters.length === 0) {
+        setCongrats(true);
 
-    // if missingLetters length is 0, game is won
-    if(missingLetters.length===0)
-    {
-      setSnackbar({open: true, message: "You won the game!!!"});
+        setTimeout(() => {
+          setCongrats(false);
+        }, 2000);
+        return;
+      } else {
+        setBingo(true);
+
+        setTimeout(() => {
+          setBingo(false);
+        }, 1500);
+      }
+    } else {
+      setNiceTry(true);
+
+      setTimeout(() => {
+        setNiceTry(false);
+      }, 1000);
       return;
     }
   }
@@ -313,15 +437,22 @@ export default function Game() {
 
       {/* letter tiles when game starts */}
       {gameStarted && (
-        <Grid container sx={{textAlign:"center"}}>
+        <Grid container sx={{ textAlign: "center" }}>
           <Grid item xs={7}>
             <Grid container>
               {gameLetters.map((gameLetter) => (
                 <Grid key={gameLetter.index} item lg={2} md={3} sm={4} xs={6}>
-                  <Box className="letterTile" onClick={()=>clickGameLetter(gameLetter.index)}>
+                  <Box
+                    className="letterTile"
+                    onClick={() => clickGameLetter(gameLetter.index)}
+                  >
                     <div className="letter">
-                      {gameLetter.letter.toLocaleUpperCase()} {gameLetter.letter!=="" ? 
-                       <span>({gameLetter.letter})</span> : <img className="cat" src="./imgs/cat.png" ></img>}
+                      {gameLetter.letter.toLocaleUpperCase()}{" "}
+                      {gameLetter.letter !== "" ? (
+                        <span>({gameLetter.letter})</span>
+                      ) : (
+                        <img className="cat" src="./imgs/cat.png"></img>
+                      )}
                     </div>
                   </Box>
                 </Grid>
@@ -329,14 +460,27 @@ export default function Game() {
             </Grid>
           </Grid>
 
-          <Divider orientation="vertical" flexItem variant="middle" sx={{borderLeftWidth: "5px", borderLeftColor: "#DC6333"}} />
+          <Divider
+            orientation="vertical"
+            flexItem
+            variant="middle"
+            sx={{ borderLeftWidth: "5px", borderLeftColor: "#DC6333" }}
+          />
           <Grid item xs={4}>
-          <Grid container>
+            <Grid container>
               {missingLetters.map((missingLetter) => (
                 <Grid key={missingLetter.index} item md={4} sm={6} xs={12}>
-                  <Box className={missingLetter.selected ? "missingLetterTileSelected": "missingLetterTile"} onClick={()=>selectMissingLetter(missingLetter.index)}>
+                  <Box
+                    className={
+                      missingLetter.selected
+                        ? "missingLetterTileSelected"
+                        : "missingLetterTile"
+                    }
+                    onClick={() => selectMissingLetter(missingLetter.index)}
+                  >
                     <div className="letter">
-                      {missingLetter.letter.toLocaleUpperCase()} <span>({missingLetter.letter})</span>
+                      {missingLetter.letter.toLocaleUpperCase()}{" "}
+                      <span>({missingLetter.letter})</span>
                     </div>
                   </Box>
                 </Grid>
@@ -346,7 +490,6 @@ export default function Game() {
         </Grid>
       )}
 
-
       {/* snackbar for warning */}
       <Snackbar
         open={snackbar.open}
@@ -354,6 +497,52 @@ export default function Game() {
         onClose={closeSnackbar}
         message={snackbar.message}
       />
+
+      {/* Bingo Logo */}
+      {bingo && (
+        <img
+          src="./imgs/bingo.gif"
+          style={{
+            height: "auto",
+            width: "30%",
+            position: "fixed",
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            margin: "auto",
+          }}
+        />
+      )}
+
+      {/* congrats logo */}
+      {congrats && (
+        <img
+          src="./imgs/congrats.gif"
+          style={{
+            height: "auto",
+            width: "30%",
+            position: "fixed",
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            margin: "auto",
+          }}
+        />
+      )}
+
+      {/* nice try logo */}
+      {niceTry && (<img src="./imgs/nice_try.gif" style={{
+            height: "auto",
+            width: "30%",
+            position: "fixed",
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            margin: "auto",
+          }} />)}
     </>
   );
 }

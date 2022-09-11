@@ -1,86 +1,86 @@
-import { Button, Grid, Avatar, Dialog } from "@mui/material";
-import React, { useState } from "react";
+import {
+  Button,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions,
+} from "@mui/material";
+import React from "react";
 import Header from "./Header";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../App.css";
 
 export default function Home() {
-  const [profileBorder, setProfileBorder] = useState("");
-  const [profileDialog, setProfileDialog] = useState(false);
-  const [profileSource, setProfileSource] = useState(null);
-
-  
-
-  function circleProfile() {
-    setProfileBorder("5px solid #DC6333");
-  }
-
-  function unCircleProfile() {
-    setProfileBorder(null);
-  }
-
-  function openProfileDialog(imageSource)
-  {
-    setProfileDialog(true);
-    setProfileSource(imageSource);
-  }
-
-  function closeProfileDialog() {
-    setProfileDialog(false);
-  }
-
-  const navi = useNavigate();
-  const gotoLevelSelectionPage = (url)=>{
-    navi(url);
-  }
-  
   return (
     <>
-      <Header />
+      <Header title="Homeschool Learning App" />
 
       <Grid container>
-        <Grid item xs={12} sx={{ textAlign: "center", paddingTop: "10px" }}>
-          <img
-            src="./imgs/ABC.png"
-            alt=""
-            style={{ maxWidth: "100%", minWidth: "30%", userSelect: "none"}}
-          />
+        <Grid item xs={12} md={6} sx={{ paddingTop: "10px" }}>
+          <Card sx={{ width: "90%", margin: "auto", left: 0, right: 0 }}>
+            <CardMedia
+              component="img"
+              sx={{
+                height: "auto",
+                width: "100%",
+                margin: "auto",
+                left: 0,
+                right: 0,
+                backgroundColor: "red",
+              }}
+              image="./imgs/ABC.jpeg"
+              alt="ABC Learning"
+            />
+            <CardContent>Learning ABC</CardContent>
+            <CardActions>
+              <Link
+                to="/alphabet-game"
+                style={{
+                  textDecoration: "none",
+                  margin: "auto",
+                  left: 0,
+                  right: 0,
+                }}
+              >
+                <Button variant="contained">Start</Button>
+              </Link>
+            </CardActions>
+          </Card>
         </Grid>
 
-        <Grid item xs={12} sx={{ textAlign: "center" }}>
-          Current student(s): Aria <b>Mei</b> Ye
-        </Grid>
-
-        <Grid item xs={12} sx={{ textAlign: "center", height: "170px", position: "relative" }}>
-          <Avatar
-            className="profile"
-            onClick = {()=>openProfileDialog("./profiles/Mei_large.jpg")}
-            onMouseEnter={() => circleProfile()}
-            onMouseLeave={() => unCircleProfile()}
-            src="./profiles/Mei_large.jpg"
-            alt="Mei"
-            sx={{
-              width: "150px",
-              height: "150px",
-              margin: "auto",
-              position: "absolute",
-              top: 0,
-              bottom: 0,
-              left: 0,
-              right: 0,
-              border: profileBorder,
-            }}
-          />
-        </Grid>
-
-        <Grid item xs={12} sx={{textAlign: "center", margin: "10px"}}>
-            <Button variant="outlined" onClick={()=>gotoLevelSelectionPage("/game")}>Start</Button>
+        <Grid item xs={12} md={6} sx={{ paddingTop: "10px" }}>
+          <Card sx={{ width: "90%", margin: "auto", left: 0, right: 0 }}>
+            <CardMedia
+              component="img"
+              sx={{
+                height: "auto",
+                width: "100%",
+                margin: "auto",
+                left: 0,
+                right: 0,
+                backgroundColor: "red",
+              }}
+              image="./imgs/numbers.jpg"
+              alt="ABC Learning"
+            />
+            <CardContent>Learning 1 to 20</CardContent>
+            <CardActions>
+              <Link
+                to="/numbers-game"
+                style={{
+                  textDecoration: "none",
+                  margin: "auto",
+                  left: 0,
+                  right: 0,
+                }}
+              >
+                <Button variant="contained">Start</Button>
+              </Link>
+            </CardActions>
+          </Card>
         </Grid>
       </Grid>
-
-      <Dialog open={profileDialog} onClose={() => closeProfileDialog()}>
-        <img src={profileSource} style={{width: "100%", height: "auto"}} alt="profile"></img>
-      </Dialog>
     </>
   );
 }

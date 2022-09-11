@@ -1,18 +1,20 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import './App.css';
-import Game from './Components/Game';
+import AlphabetGame from './Components/AlphabetGame';
 import Home from './Components/Home';
+import NumbersGame from './Components/NumbersGame/NumbersGame';
 
 
 function App() {
   return (
     <>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter basename='/'>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/game' element={<Game />} />
+          <Route path='/alphabet-game' element={<AlphabetGame />} />
+          <Route path='/numbers-game' element={<NumbersGame />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

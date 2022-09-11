@@ -11,10 +11,10 @@ import {
 import React, { useEffect, useState } from "react";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import Header from "./Header";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { height } from "@mui/system";
 
-export default function Game() {
+export default function AlphabetGame() {
   const navi = useNavigate();
   function gotoHomePage(url) {
     navi(url);
@@ -363,31 +363,19 @@ export default function Game() {
 
   return (
     <>
-      <Header />
-      <Avatar
-        className="profile"
-        src="./profiles/Mei_large.jpg"
-        alt="Mei"
-        sx={{
-          width: "40px",
-          height: "40px",
-          position: "absolute",
-          top: "1px",
-          right: "5px",
-          border: "2px solid white",
-        }}
-      />
+      <Header title="ABC Learning Game" />
 
       {/* select difficulty level */}
       <Grid container sx={{ width: "95%", left: 0, right: 0, margin: "auto" }}>
         <Grid item xs={12} sx={{ marginTop: "10px" }}>
-          <Button
-            variant="outlined"
-            startIcon={<KeyboardBackspaceRoundedIcon />}
-            onClick={() => gotoHomePage("/")}
-          >
-            Back
-          </Button>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Button
+              variant="outlined"
+              startIcon={<KeyboardBackspaceRoundedIcon />}
+            >
+              Home
+            </Button>
+          </Link>
         </Grid>
 
         <Grid item xs={12}>
@@ -533,7 +521,10 @@ export default function Game() {
       )}
 
       {/* nice try logo */}
-      {niceTry && (<img src="./imgs/nice_try.gif" style={{
+      {niceTry && (
+        <img
+          src="./imgs/nice_try.gif"
+          style={{
             height: "auto",
             width: "30%",
             position: "fixed",
@@ -542,7 +533,9 @@ export default function Game() {
             top: 0,
             bottom: 0,
             margin: "auto",
-          }} />)}
+          }}
+        />
+      )}
     </>
   );
 }

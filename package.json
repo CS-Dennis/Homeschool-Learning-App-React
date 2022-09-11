@@ -1,7 +1,7 @@
 {
   "name": "homeschool-app-react",
   "version": "0.1.0",
-  "homepage": "https://CS-Dennis.github.io/alphabet-learning-app-react",
+  "homepage": "https://CS-Dennis.github.io/Homeschool-Learning-App-React",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.0",

@@ -9,7 +9,14 @@ export default function FlashCard({ number }) {
         <img
           alt="dog"
           src={"./imgs/barbie" + number + ".jpg"}
-          style={{ width: "100px", marginLeft: "10px", marginRight: "10px" }}
+          style={{
+            width: "100px",
+            height: "100px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            marginBottom: "10px"
+          }}
+          className="circleImg"
         />
       );
     }

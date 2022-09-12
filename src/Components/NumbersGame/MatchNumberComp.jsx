@@ -9,6 +9,7 @@ export default function MatchNumberComp() {
   const [dogList, setDogList] = useState([]);
   const [answerList, setAnswerList] = useState([]);
   const [showCongrats, setShowCongrats] = useState(false);
+  const [showWrong, setShowWrong] = useState(false);
 
   useEffect(() => {
     initGame();
@@ -40,6 +41,7 @@ export default function MatchNumberComp() {
         <IconButton
           color="primary"
           sx={{ transform: "scale(2)", padding: "20px" }}
+          onClick ={()=>displayWrong()}
         >
           {newRandomNumber2}
         </IconButton>,
@@ -49,6 +51,7 @@ export default function MatchNumberComp() {
         <IconButton
           color="primary"
           sx={{ transform: "scale(2)", marginRight: "100px", padding: "20px" }}
+          onClick ={()=>displayWrong()}
         >
           {newRandomNumber2}
         </IconButton>,
@@ -68,8 +71,17 @@ export default function MatchNumberComp() {
         <img
           alt="dog"
           src={"./imgs/barbie" + newDogImageNumber + ".jpg"}
-          height={100}
-          style={{marginLeft: "10px", marginRight:"10px"}}
+          className="circleImg"
+          style={{
+            width: "100px",
+            height: "100px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            marginBottom: "10px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            marginBottom: "10px",
+          }}
         />
       );
     }
@@ -84,6 +96,15 @@ export default function MatchNumberComp() {
       setShowCongrats(false);
     }, 1500);
   };
+
+  const displayWrong = ()=>
+  {
+    setShowWrong(true);
+
+    setTimeout(() => {
+      setShowWrong(false);
+    }, 1500);
+  }
 
   return (
     <>
@@ -105,6 +126,23 @@ export default function MatchNumberComp() {
           <img
             alt="congrats"
             src="./imgs/congrats.gif"
+            style={{
+              position: "fixed",
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              margin: "auto",
+            }}
+          />
+        </Box>
+      )}
+
+      {showWrong && (
+        <Box>
+          <img
+            src="./imgs/wrong.png"
+            alt="wrong"
             style={{
               position: "fixed",
               left: 0,

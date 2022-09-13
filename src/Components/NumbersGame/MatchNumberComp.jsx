@@ -24,26 +24,26 @@ export default function MatchNumberComp() {
     initGame(maxNumber);
   }, []);
 
-  const initGame = (maxNumber) => {
-    const newRandomNumber = Math.floor(Math.random() * maxNumber + 1);
-    let newRandomNumber2 = Math.floor(Math.random() * maxNumber + 1);
+  const initGame = (number) => {
+    const newRandomNumber = Math.floor(Math.random() * number + 1);
+    let newRandomNumber2 = Math.floor(Math.random() * number + 1);
 
     while (newRandomNumber2 === newRandomNumber) {
-      newRandomNumber2 = Math.floor(Math.random() * maxNumber + 1);
+      newRandomNumber2 = Math.floor(Math.random() * number + 1);
     }
 
-    const newDogImageNumber = Math.floor(Math.random() * maxNumber + 1);
+    const newDogImageNumber = Math.floor(Math.random() * number + 1);
 
     setRandomNumber(newRandomNumber);
     setRandomNumber2(newRandomNumber2);
     setDogImageNumber(newDogImageNumber);
 
-    if (Math.floor(Math.random() * maxNumber + 1) % 2 === 0) {
+    if (Math.floor(Math.random() * number + 1) % 2 === 0) {
       setAnswerList([
         <IconButton
           color="primary"
           sx={{ transform: "scale(2)", marginRight: "100px", padding: "20px" }}
-          onClick={() => displayCongrats()}
+          onClick={() => displayCongrats(number)}
         >
           {newRandomNumber}
         </IconButton>,
@@ -67,7 +67,7 @@ export default function MatchNumberComp() {
         <IconButton
           color="primary"
           sx={{ transform: "scale(2)", padding: "20px" }}
-          onClick={() => displayCongrats()}
+          onClick={() => displayCongrats(number)}
         >
           {newRandomNumber}
         </IconButton>,
@@ -95,18 +95,17 @@ export default function MatchNumberComp() {
     setDogList(divList);
   };
 
-  const changeMaxNumber = (maxNumber)=>
-  {
-    setMaxNumber(maxNumber);
-    initGame(maxNumber);
-  }
+  const changeMaxNumber = (number) => {
+    setMaxNumber(number);
+    initGame(number);
+  };
 
-  const displayCongrats = () => {
+  const displayCongrats = (number) => {
     setShowCongrats(true);
 
     setTimeout(() => {
       setShowCongrats(false);
-      initGame(maxNumber);
+      initGame(number);
     }, 1500);
   };
 
@@ -124,12 +123,14 @@ export default function MatchNumberComp() {
         <Button onClick={() => initGame(maxNumber)} variant="contained">
           Change Number
         </Button>
-        <FormControl sx={{minWidth: 150, marginLeft: '10px'}}>
+        <FormControl sx={{ minWidth: 150, marginLeft: "10px" }}>
           <InputLabel id="maxNumber">Max Number</InputLabel>
-          <Select labelId="maxNumber"
-          label="Max Number"
-          value={maxNumber}
-          onChange={(e)=>changeMaxNumber(e.target.value)}>
+          <Select
+            labelId="maxNumber"
+            label="Max Number"
+            value={maxNumber}
+            onChange={(e) => changeMaxNumber(e.target.value)}
+          >
             <MenuItem value={20}>20</MenuItem>
             <MenuItem value={19}>19</MenuItem>
             <MenuItem value={18}>18</MenuItem>

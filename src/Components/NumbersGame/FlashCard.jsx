@@ -14,7 +14,7 @@ export default function FlashCard({ number }) {
             height: "100px",
             marginLeft: "10px",
             marginRight: "10px",
-            marginBottom: "10px"
+            marginBottom: "10px",
           }}
           className="circleImg"
         />

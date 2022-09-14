@@ -6,13 +6,18 @@ import { Link } from "react-router-dom";
 import FlashCard from "./FlashCard";
 import { Box } from "@mui/system";
 import MatchNumberComp from "./MatchNumberComp";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFlip, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-flip";
 
 export default function NumbersGame() {
   const [showVideo, setShowVideo] = useState(true);
   const [showFlashCard, setShowFlashCard] = useState(false);
   const [showMatchGame, setShowMatchGame] = useState(false);
-
-  const [number, setNumber] = useState(1);
+  const [numbers, setNumbers] = useState([
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+  ]);
 
   const startVideo = () => {
     setShowVideo(true);
@@ -30,6 +35,24 @@ export default function NumbersGame() {
     setShowVideo(false);
     setShowFlashCard(false);
     setShowMatchGame(true);
+  };
+
+  const shuffleCards = () => {
+    let randomNumber = Math.floor(Math.random() * 20) + 1;
+    const newRandomNumbers = [randomNumber];
+    while (newRandomNumbers.length < 20) {
+      randomNumber = Math.floor(Math.random() * 20) + 1;
+      if (newRandomNumbers.indexOf(randomNumber) === -1) {
+        newRandomNumbers.push(randomNumber);
+      }
+    }
+    setNumbers(newRandomNumbers);
+  };
+
+  const sortCards = () => {
+    setNumbers([
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    ]);
   };
 
   return (
@@ -98,38 +121,41 @@ export default function NumbersGame() {
                 Back
               </Button>
             </Grid>
+
             <Grid item md={2}></Grid>
             <Grid item xs={12} md={8} sx={{ textAlign: "center" }}>
-              <Tabs
-                value={number - 1}
-                onChange={(event, n) => setNumber(n + 1)}
-                variant="scrollable"
-                scrollButtons="auto"
-                aria-label="scrollable auto tabs example"
+              <Box sx={{ fontSize: "5em" }}>Flash Card</Box>
+              <Box sx={{ marginBottom: "10px", display: "flex" }}>
+                <Button
+                  variant="outlined"
+                  onClick={() => shuffleCards()}
+                  sx={{ flex: "48%" }}
+                >
+                  Shuffle Cards
+                </Button>
+                <Box sx={{ flex: "4%" }} />
+                <Button
+                  variant="outlined"
+                  onClick={() => sortCards()}
+                  sx={{ flex: "48%" }}
+                >
+                  Sort Cards
+                </Button>
+              </Box>
+              {/* swipe cards */}
+              <Swiper
+                slidesPerView={1}
+                grabCursor={true}
+                loop={true}
+                effect="flip"
+                modules={[EffectFlip]}
               >
-                <Tab label="One" />
-                <Tab label="Two" />
-                <Tab label="Three" />
-                <Tab label="Four" />
-                <Tab label="Five" />
-                <Tab label="Six" />
-                <Tab label="Seven" />
-                <Tab label="Eight" />
-                <Tab label="Nine" />
-                <Tab label="Ten" />
-                <Tab label="Eleven" />
-                <Tab label="Twleve" />
-                <Tab label="Thirteen" />
-                <Tab label="Fourteen" />
-                <Tab label="Fifteen" />
-                <Tab label="Sixteen" />
-                <Tab label="Seventeen" />
-                <Tab label="Eighteen" />
-                <Tab label="Nineteen" />
-                <Tab label="Twenty" />
-              </Tabs>
-
-              <FlashCard number={number} />
+                {numbers.map((num) => (
+                  <SwiperSlide style={{ backgroundColor: "white" }}>
+                    <FlashCard number={num} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </Grid>
             <Grid item md={2}></Grid>
           </>

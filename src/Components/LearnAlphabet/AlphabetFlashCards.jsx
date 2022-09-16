@@ -231,6 +231,8 @@ export default function AlphabetFlashCards() {
 
   const [deck, setDeck] = useState(deckUpperCase);
 
+  const [showAllCards, setShowAllCards] = useState(false);
+
   const changeDeckValue = (value) => {
     if (value !== null) {
       setDeckValue(value);
@@ -278,11 +280,11 @@ export default function AlphabetFlashCards() {
     // uppercase: index 1 - 26
     if (deckValue === 0) {
       setDeck([...deckUpperCase]);
-    } 
+    }
     // lowercase: index 27 - 52
     else if (deckValue === 1) {
       setDeck([...deckLowerCase]);
-    } 
+    }
     // mixed case: index 1 - 52
     else if (deckValue === 2) {
       const sortedMixedDeck = [];
@@ -323,72 +325,115 @@ export default function AlphabetFlashCards() {
           paddingBottom: "20px",
         }}
       >
-        <Grid item xs={12} sx={{ marginTop: "10px" }}>
-          <Link to="/learn-alphabet/" style={{ textDecoration: "none" }}>
-            <Button
-              variant="outlined"
-              startIcon={<KeyboardBackspaceRoundedIcon />}
-            >
-              Back
-            </Button>
-          </Link>
-        </Grid>
+        <Grid item xs={12} sx={{ marginTop: "10px", display: "flex" }}>
+          <Box sx={{ flex: 1 }}>
+            <Link to="/learn-alphabet/" style={{ textDecoration: "none" }}>
+              <Button
+                variant="outlined"
+                startIcon={<KeyboardBackspaceRoundedIcon />}
+              >
+                Back
+              </Button>
+            </Link>
+          </Box>
 
-        <Grid item xs={12} sx={{ textAlign: "center", marginTop: "10px" }}>
-          <ToggleButtonGroup
-            color="primary"
-            value={deckValue}
-            exclusive
-            onChange={(e, value) => changeDeckValue(value)}
-          >
-            <ToggleButton value={0}>Uppercase Deck</ToggleButton>
-            <ToggleButton value={1}>Lowercase Deck</ToggleButton>
-            <ToggleButton value={2}>Mixed Deck</ToggleButton>
-          </ToggleButtonGroup>
-        </Grid>
-
-        <Grid item xs={12} sx={{ textAlign: "center", marginTop: "10px" }}>
-          <Box sx={{ display: "flex" }}>
-            <Box sx={{ flex: "15%" }}></Box>
-            <Button
-              variant="contained"
-              sx={{ flex: "30%" }}
-              onClick={() => shuffleDeck()}
-            >
-              Shuffle
-            </Button>
-            <Box sx={{ flex: "10%" }}></Box>
-            <Button
-              variant="contained"
-              sx={{ flex: "30%" }}
-              onClick={() => sortDeck()}
-            >
-              Sort
-            </Button>
-            <Box sx={{ flex: "15%" }}></Box>
+          <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
+            {!showAllCards && (
+              <Button variant="contained" onClick={() => setShowAllCards(true)}>
+                Show All Cards
+              </Button>
+            )}
+            {showAllCards && (
+              <Button
+                variant="contained"
+                onClick={() => setShowAllCards(false)}
+              >
+                Show Flashcards
+              </Button>
+            )}
           </Box>
         </Grid>
-      </Grid>
 
-      <Grid container>
-        <Grid item sm={2}></Grid>
-        <Grid item xs={12} sm={8}>
-          <div style={{ width: "90%", margin: "auto", left: 0, right: 0 }}>
-            <Swiper
-              effect="flip"
-              loop={true}
-              grabCursor={true}
-              modules={[EffectFlip]}
-            >
-              {deck.map((letter) => (
-                <SwiperSlide>
-                  <AlphabetFlashCard letter={letter.letter} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </Grid>
-        <Grid item sm={2}></Grid>
+        {/* show flashcards */}
+        {!showAllCards && (
+          <>
+            <Grid item xs={12} sx={{ textAlign: "center", marginTop: "10px" }}>
+              <ToggleButtonGroup
+                color="primary"
+                value={deckValue}
+                exclusive
+                onChange={(e, value) => changeDeckValue(value)}
+              >
+                <ToggleButton value={0}>Uppercase Deck</ToggleButton>
+                <ToggleButton value={1}>Lowercase Deck</ToggleButton>
+                <ToggleButton value={2}>Mixed Deck</ToggleButton>
+              </ToggleButtonGroup>
+            </Grid>
+
+            <Grid item xs={12} sx={{ textAlign: "center", marginTop: "10px" }}>
+              <Box sx={{ display: "flex" }}>
+                <Box sx={{ flex: "15%" }}></Box>
+                <Button
+                  variant="contained"
+                  sx={{ flex: "30%" }}
+                  onClick={() => shuffleDeck()}
+                >
+                  Shuffle
+                </Button>
+                <Box sx={{ flex: "10%" }}></Box>
+                <Button
+                  variant="contained"
+                  sx={{ flex: "30%" }}
+                  onClick={() => sortDeck()}
+                >
+                  Sort
+                </Button>
+                <Box sx={{ flex: "15%" }}></Box>
+              </Box>
+            </Grid>
+
+            <Grid item sm={2}></Grid>
+            <Grid item xs={12} sm={8} sx={{ marginTop: "20px" }}>
+              <div style={{ width: "90%", margin: "auto", left: 0, right: 0 }}>
+                <Swiper
+                  effect="flip"
+                  loop={true}
+                  grabCursor={true}
+                  modules={[EffectFlip]}
+                >
+                  {deck.map((letter) => (
+                    <SwiperSlide>
+                      <AlphabetFlashCard
+                        letter={letter.letter}
+                        fontSize="20em"
+                        imageWidth="200px"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            </Grid>
+            <Grid item sm={2}></Grid>
+          </>
+        )}
+
+        {showAllCards && (
+          <>
+            {deck.map((letter) => (
+              <Grid item xs={6} sm={4} md={2} sx={{ marginTop: "20px" }}>
+                <div
+                  style={{ width: "90%", margin: "auto", left: 0, right: 0 }}
+                >
+                  <AlphabetFlashCard
+                    letter={letter.letter}
+                    fontSize="2em"
+                    imageWidth="50px"
+                  />
+                </div>
+              </Grid>
+            ))}
+          </>
+        )}
       </Grid>
     </>
   );

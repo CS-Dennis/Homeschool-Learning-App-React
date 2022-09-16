@@ -205,7 +205,7 @@ export default function NumbersGame() {
               </Button>
             </Grid>
             <Grid item md={2}></Grid>
-            <Grid item xs={12} md={8} sx={{ textAlign: "center" }}>
+            <Grid item xs={12} md={8}>
               <MatchNumberComp />
             </Grid>
             <Grid item md={2}></Grid>

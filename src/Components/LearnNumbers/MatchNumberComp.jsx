@@ -9,8 +9,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import {Swiper, SwiperSlide} from "swiper/react";
-
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function MatchNumberComp() {
   const [maxNumber, setMaxNumber] = useState(20);
@@ -121,45 +120,50 @@ export default function MatchNumberComp() {
 
   return (
     <>
-      <Box>
-        <Button onClick={() => initGame(maxNumber)} variant="contained">
-          Change Number
-        </Button>
-        <FormControl sx={{ minWidth: 150, marginLeft: "10px" }}>
-          <InputLabel id="maxNumber">Max Number</InputLabel>
-          <Select
-            labelId="maxNumber"
-            label="Max Number"
-            value={maxNumber}
-            onChange={(e) => changeMaxNumber(e.target.value)}
-          >
-            <MenuItem value={20}>20</MenuItem>
-            <MenuItem value={19}>19</MenuItem>
-            <MenuItem value={18}>18</MenuItem>
-            <MenuItem value={17}>17</MenuItem>
-            <MenuItem value={16}>16</MenuItem>
-            <MenuItem value={15}>15</MenuItem>
-            <MenuItem value={14}>14</MenuItem>
-            <MenuItem value={13}>13</MenuItem>
-            <MenuItem value={12}>12</MenuItem>
-            <MenuItem value={11}>11</MenuItem>
-            <MenuItem value={10}>10</MenuItem>
-            <MenuItem value={9}>9</MenuItem>
-            <MenuItem value={8}>8</MenuItem>
-            <MenuItem value={7}>7</MenuItem>
-            <MenuItem value={6}>6</MenuItem>
-            <MenuItem value={5}>5</MenuItem>
-            <MenuItem value={4}>4</MenuItem>
-            <MenuItem value={3}>3</MenuItem>
-            <MenuItem value={2}>2</MenuItem>
-          </Select>
-        </FormControl>
+      <Box sx={{ display: "flex", marginTop: "20px" }}>
+        <Box sx={{flex: "40%", textAlign: 'right'}}>
+          <Button onClick={() => initGame(maxNumber)} variant="contained">
+            Change Number
+          </Button>
+        </Box>
+        <Box sx={{flex: "5%"}}></Box>
+        <Box sx={{flex: "40%"}}>
+          <FormControl sx={{ minWidth: 150 }}>
+            <InputLabel id="maxNumber">Max Number</InputLabel>
+            <Select
+              labelId="maxNumber"
+              label="Max Number"
+              value={maxNumber}
+              onChange={(e) => changeMaxNumber(e.target.value)}
+            >
+              <MenuItem value={20}>20</MenuItem>
+              <MenuItem value={19}>19</MenuItem>
+              <MenuItem value={18}>18</MenuItem>
+              <MenuItem value={17}>17</MenuItem>
+              <MenuItem value={16}>16</MenuItem>
+              <MenuItem value={15}>15</MenuItem>
+              <MenuItem value={14}>14</MenuItem>
+              <MenuItem value={13}>13</MenuItem>
+              <MenuItem value={12}>12</MenuItem>
+              <MenuItem value={11}>11</MenuItem>
+              <MenuItem value={10}>10</MenuItem>
+              <MenuItem value={9}>9</MenuItem>
+              <MenuItem value={8}>8</MenuItem>
+              <MenuItem value={7}>7</MenuItem>
+              <MenuItem value={6}>6</MenuItem>
+              <MenuItem value={5}>5</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
       </Box>
-      <Paper elevation={3} sx={{ marginTop: "20px", height: "auto" }}>
+      <Paper elevation={3} sx={{ marginTop: "20px", height: "auto", textAlign: "center" }}>
         {dogList.map((dogImage) => dogImage)}
       </Paper>
 
-      <Box sx={{ marginTop: "50px", marginBottom: "50px" }}>
+      <Box sx={{ marginTop: "50px", marginBottom: "50px", textAlign: "center"  }}>
         {answerList.map((answer) => answer)}
       </Box>
 
@@ -196,8 +200,6 @@ export default function MatchNumberComp() {
           />
         </Box>
       )}
-
-      
     </>
   );
 }

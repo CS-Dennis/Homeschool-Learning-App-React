@@ -35,7 +35,7 @@ export default function Home() {
             <CardContent>Learning ABC</CardContent>
             <CardActions>
               <Link
-                to="/alphabet-game"
+                to="/learn-alphabet"
                 style={{
                   textDecoration: "none",
                   margin: "auto",
@@ -67,7 +67,7 @@ export default function Home() {
             <CardContent>Learning 1 to 20</CardContent>
             <CardActions>
               <Link
-                to="/numbers-game"
+                to="/learn-numbers"
                 style={{
                   textDecoration: "none",
                   margin: "auto",

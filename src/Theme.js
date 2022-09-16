@@ -5,11 +5,11 @@ export const orangeTheme =createTheme( {
   palette: {
     type: 'light',
     primary: {
-      main: '#DC6333',
+      main: '#ff598f',
       contrastText: 'rgba(255,255,255,0.87)',
     },
     secondary: {
-      main: '#20b1aa',
+      main: '#FE0051',
     },
     text: {
       primary: 'rgba(0,0,0,0.87)',

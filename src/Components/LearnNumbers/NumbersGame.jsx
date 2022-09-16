@@ -1,37 +1,49 @@
-import { Button, Grid, IconButton, Tab, Tabs } from "@mui/material";
+import { Button, Grid, IconButton } from "@mui/material";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import React, { useState } from "react";
 import Header from "../Header";
 import { Link } from "react-router-dom";
-import FlashCard from "./FlashCard";
 import { Box } from "@mui/system";
 import MatchNumberComp from "./MatchNumberComp";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFlip, Pagination } from "swiper";
+import { EffectFlip} from "swiper";
 import "swiper/css";
 import "swiper/css/effect-flip";
+import NumberFlashCard from "./NumberFlashCard";
 
 export default function NumbersGame() {
-  const [showVideo, setShowVideo] = useState(true);
+  const [showButtonGroup, setShowButtonGroup] = useState(true);
+  const [showVideo, setShowVideo] = useState(false);
   const [showFlashCard, setShowFlashCard] = useState(false);
   const [showMatchGame, setShowMatchGame] = useState(false);
   const [numbers, setNumbers] = useState([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ]);
 
+  const numbersGameHome = ()=>
+  {
+    setShowButtonGroup(true);
+    setShowVideo(false);
+    setShowFlashCard(false);
+    setShowMatchGame(false);
+  }
+
   const startVideo = () => {
+    setShowButtonGroup(false);
     setShowVideo(true);
     setShowFlashCard(false);
     setShowMatchGame(false);
   };
 
   const startFlashCard = () => {
+    setShowButtonGroup(false);
     setShowVideo(false);
     setShowFlashCard(true);
     setShowMatchGame(false);
   };
 
   const startMatchGame = () => {
+    setShowButtonGroup(false);
     setShowVideo(false);
     setShowFlashCard(false);
     setShowMatchGame(true);
@@ -69,7 +81,7 @@ export default function NumbersGame() {
           paddingBottom: "20px",
         }}
       >
-        {showVideo && (
+        {showButtonGroup && (
           <>
             <Grid item xs={12} sx={{ marginTop: "10px" }}>
               <Link to="/" style={{ textDecoration: "none" }}>
@@ -80,6 +92,40 @@ export default function NumbersGame() {
                   Home
                 </Button>
               </Link>
+            </Grid>
+
+            <Grid item xs={12} sm={4} sx={{ textAlign: "center", marginTop: "100px" }}>
+              <IconButton variant="outlined" sx={{transform: 'scale(3)'}} onClick={() => startVideo()}>
+                <img alt="flashcard" src="./imgs/video.png" height={50} />
+              </IconButton>
+              <Box sx={{marginTop: "50px", fontSize: "1.4em"}}>Play Video</Box>
+            </Grid>
+
+            <Grid item xs={12} sm={4} sx={{ textAlign: "center", marginTop: "100px" }}>
+              <IconButton variant="outlined" sx={{transform: 'scale(3)'}} onClick={() => startFlashCard()}>
+                <img alt="flashcard" src="./imgs/flashcard.png" height={50} />
+              </IconButton>
+              <Box sx={{marginTop: "50px", fontSize: "1.4em"}}>Flashcards</Box>
+            </Grid>
+
+            <Grid item xs={12} sm={4} sx={{ textAlign: "center", marginTop: "100px" }}>
+              <IconButton variant="outlined" sx={{transform: 'scale(3)'}} onClick={() => startMatchGame()}>
+                <img alt="flashcard" src="./imgs/puzzle.png" height={50} />
+              </IconButton>
+              <Box sx={{marginTop: "50px", fontSize: "1.4em"}}>Match Numbers</Box>
+            </Grid>
+          </>
+        )}
+        {showVideo && (
+          <>
+            <Grid item xs={12} sx={{ marginTop: "10px" }}>
+                <Button
+                  variant="outlined"
+                  startIcon={<KeyboardBackspaceRoundedIcon />}
+                  onClick={()=>numbersGameHome()}
+                >
+                  Back
+                </Button>
             </Grid>
             <Grid item xs={12} sx={{ textAlign: "center", paddingTop: "25px" }}>
               <h2>Watch Count and Move</h2>
@@ -93,20 +139,6 @@ export default function NumbersGame() {
                 allowFullScreen
               ></iframe>
             </Grid>
-
-            <Grid item xs={12} sm={6} sx={{ textAlign: "center" }}>
-              <IconButton variant="outlined" onClick={() => startFlashCard()}>
-                <img alt="flashcard" src="./imgs/flashcard.png" height={50} />
-              </IconButton>
-              <Box>Flashcards</Box>
-            </Grid>
-
-            <Grid item xs={12} sm={6} sx={{ textAlign: "center" }}>
-              <IconButton variant="outlined" onClick={() => startMatchGame()}>
-                <img alt="flashcard" src="./imgs/puzzle.png" height={50} />
-              </IconButton>
-              <Box>Match Numbers</Box>
-            </Grid>
           </>
         )}
 
@@ -116,7 +148,7 @@ export default function NumbersGame() {
               <Button
                 variant="outlined"
                 startIcon={<KeyboardBackspaceRoundedIcon />}
-                onClick={() => startVideo()}
+                onClick={() => numbersGameHome()}
               >
                 Back
               </Button>
@@ -152,7 +184,7 @@ export default function NumbersGame() {
               >
                 {numbers.map((num) => (
                   <SwiperSlide style={{ backgroundColor: "white" }}>
-                    <FlashCard number={num} />
+                    <NumberFlashCard number={num} />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -167,7 +199,7 @@ export default function NumbersGame() {
               <Button
                 variant="outlined"
                 startIcon={<KeyboardBackspaceRoundedIcon />}
-                onClick={() => startVideo()}
+                onClick={() => numbersGameHome()}
               >
                 Back
               </Button>

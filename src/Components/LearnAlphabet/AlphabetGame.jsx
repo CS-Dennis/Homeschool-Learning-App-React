@@ -8,17 +8,12 @@ import {
   Slider,
   Snackbar,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
-import Header from "./Header";
-import { Link, useNavigate } from "react-router-dom";
-import { height } from "@mui/system";
+import Header from "../Header";
+import { Link } from "react-router-dom";
 
 export default function AlphabetGame() {
-  const navi = useNavigate();
-  function gotoHomePage(url) {
-    navi(url);
-  }
 
   const [level, setLevel] = useState(1);
   function changeLevel(e) {
@@ -71,7 +66,6 @@ export default function AlphabetGame() {
   const [snackbar, setSnackbar] = useState({ open: false, message: "" });
 
   function startGame() {
-    console.log(level);
     missingLetters = [];
     gameLetters = allLetters;
     // based on current level create a new number list with the size of level
@@ -368,12 +362,12 @@ export default function AlphabetGame() {
       {/* select difficulty level */}
       <Grid container sx={{ width: "95%", left: 0, right: 0, margin: "auto" }}>
         <Grid item xs={12} sx={{ marginTop: "10px" }}>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/learn-alphabet/" style={{ textDecoration: "none" }}>
             <Button
               variant="outlined"
               startIcon={<KeyboardBackspaceRoundedIcon />}
             >
-              Home
+              Back
             </Button>
           </Link>
         </Grid>
@@ -452,7 +446,7 @@ export default function AlphabetGame() {
             orientation="vertical"
             flexItem
             variant="middle"
-            sx={{ borderLeftWidth: "5px", borderLeftColor: "#DC6333" }}
+            sx={{ borderLeftWidth: "5px", borderLeftColor: "#FE0051" }}
           />
           <Grid item xs={4}>
             <Grid container>

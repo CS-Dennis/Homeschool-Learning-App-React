@@ -1,7 +1,7 @@
 import { Paper } from "@mui/material";
 import React from "react";
 
-export default function FlashCard({ number }) {
+export default function NumberFlashCard({ number }) {
   const imageList = () => {
     const images = [];
     for (let index = 1; index < number + 1; index++) {

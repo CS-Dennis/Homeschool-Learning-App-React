@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   Button,
   FormControl,
@@ -9,7 +10,6 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function MatchNumberComp() {
   const [maxNumber, setMaxNumber] = useState(20);
@@ -23,6 +23,7 @@ export default function MatchNumberComp() {
 
   useEffect(() => {
     initGame(maxNumber);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const initGame = (number) => {

@@ -310,6 +310,7 @@ export default function AlphabetFlashCards() {
     else if (deckValue === 2) {
       sortDeck();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deckValue]);
 
   return (

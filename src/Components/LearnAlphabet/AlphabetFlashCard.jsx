@@ -6,7 +6,7 @@ export default function AlphabetFlashCard({ letter, fontSize, imageWidth }) {
     <>
       <Paper elevation={3} sx={{textAlign: 'center'}}>
         <div style={{ fontSize: fontSize, textAlign: "center" }}>{letter}</div>
-        <img src={"./imgs/alphabets/"+letter.toLowerCase()+".png"} alt="image" width={imageWidth} />
+        <img src={"./imgs/alphabets/"+letter.toLowerCase()+".png"} alt="letter" width={imageWidth} />
       </Paper>
     </>
   );

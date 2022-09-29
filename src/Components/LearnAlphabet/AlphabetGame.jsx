@@ -1,8 +1,6 @@
 import {
-  Avatar,
   Box,
   Button,
-  Dialog,
   Divider,
   Grid,
   Slider,
@@ -433,7 +431,7 @@ export default function AlphabetGame() {
                       {gameLetter.letter !== "" ? (
                         <span>({gameLetter.letter})</span>
                       ) : (
-                        <img className="cat" src="./imgs/cat.png"></img>
+                        <img className="cat" src="./imgs/cat.png" alt="cat"></img>
                       )}
                     </div>
                   </Box>
@@ -484,6 +482,7 @@ export default function AlphabetGame() {
       {bingo && (
         <img
           src="./imgs/bingo.gif"
+          alt="bingo"
           style={{
             height: "auto",
             width: "30%",
@@ -501,6 +500,7 @@ export default function AlphabetGame() {
       {congrats && (
         <img
           src="./imgs/congrats.gif"
+          alt="congrats"
           style={{
             height: "auto",
             width: "30%",
@@ -517,7 +517,8 @@ export default function AlphabetGame() {
       {/* nice try logo */}
       {niceTry && (
         <img
-          src="./imgs/nice_try.gif"
+          src="./imgs/wrong.png"
+          alt="incorrect"
           style={{
             height: "auto",
             width: "30%",

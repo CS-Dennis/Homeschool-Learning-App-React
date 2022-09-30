@@ -8,6 +8,25 @@
   src: url('../public/fonts/Comfortaa_Bold.ttf')
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff598f;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #FE0051;
+}
 
 body
 {
@@ -23,6 +42,13 @@ h1
   text-align: center;
   color: white;
   margin: 0;
+}
+
+.subTitle
+{
+  color: #FE0051;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .circleImg

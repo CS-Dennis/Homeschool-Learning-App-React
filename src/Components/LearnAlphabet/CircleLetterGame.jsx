@@ -34,7 +34,7 @@ export default function CircleLetterGame() {
     p: "pig",
     q: "question",
     r: "rabbit",
-    s: "ship",
+    s: "sheep",
     t: "toilet",
     u: "umbrella",
     v: "violin",
@@ -360,7 +360,6 @@ export default function CircleLetterGame() {
           <img
             src="./imgs/wrong.png"
             alt="worngAnswer"
-            width={"70%"}
             style={{
               position: "absolute",
               margin: "auto",
@@ -368,6 +367,8 @@ export default function CircleLetterGame() {
               right: 0,
               bottom: 0,
               top: 0,
+              maxWidth: '70%',
+              maxHeight:'70%'
             }}
           />
         </Box>

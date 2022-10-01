@@ -256,8 +256,8 @@ export default function AlphabetGame() {
     // start game and set gameStarted to true
     setGameStarted(true);
 
-    console.log(missingLetters);
-    console.log(gameLetters);
+    // console.log(missingLetters);
+    // console.log(gameLetters);
   }
 
   // once click on a missing letter, set that missingLetter object selected: true, and set others false.
@@ -282,7 +282,7 @@ export default function AlphabetGame() {
   // click on the game letter, if none missing letter or non-missing game letter is selected, show warning; if the clicked missing game letter matches the missing letter selected,
   // show the missing game letter and remove the missing letter from the missingLetters array.
   function clickGameLetter(index) {
-    console.log(index);
+    // console.log(index);
 
     // get the selected missing letter
     let selectedMissingLetter = {};
@@ -304,7 +304,7 @@ export default function AlphabetGame() {
 
     // compare indexes of the clicked game letter and the selected missing letter
     if (index === selectedMissingLetter.index) {
-      console.log(selectedMissingLetter.letter);
+      // console.log(selectedMissingLetter.letter);
 
       // add that letter to gameLetters Array based on index
       gameLetters[index].letter = selectedMissingLetter.letter;

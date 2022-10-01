@@ -34,7 +34,7 @@ export default function CircleLetterGame() {
     p: "pig",
     q: "question",
     r: "rabbit",
-    s: "ship",
+    s: "sheep",
     t: "toilet",
     u: "umbrella",
     v: "violin",
@@ -151,7 +151,6 @@ export default function CircleLetterGame() {
     }
 
     setImageList([...tempList]);
-    console.log(tempList);
   };
 
   const toggleWords = () => {
@@ -163,7 +162,6 @@ export default function CircleLetterGame() {
   };
 
   const checkAnswer = (image) => {
-    console.log(image);
     if (lettersWithImages[currentLetter].indexOf(image.letter) !== -1) {
       image.value = true;
       setImageList([...imageList], image);
@@ -177,7 +175,6 @@ export default function CircleLetterGame() {
       }, 1000);
     }
 
-    console.log(imageList);
     let answerCount = 0;
     imageList.forEach((img) => {
       if (img.value === true) {
@@ -360,7 +357,6 @@ export default function CircleLetterGame() {
           <img
             src="./imgs/wrong.png"
             alt="worngAnswer"
-            width={"70%"}
             style={{
               position: "absolute",
               margin: "auto",
@@ -368,6 +364,8 @@ export default function CircleLetterGame() {
               right: 0,
               bottom: 0,
               top: 0,
+              maxWidth: '70%',
+              maxHeight:'70%'
             }}
           />
         </Box>

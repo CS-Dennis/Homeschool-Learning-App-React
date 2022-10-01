@@ -40,7 +40,7 @@ export default function CircleLetterGame() {
     v: "violin",
     w: "watch",
     x: "xylophone",
-    y: "yarn",
+    y: "yawn",
     z: "zucchini",
   };
 
@@ -101,12 +101,11 @@ export default function CircleLetterGame() {
     "y",
     "z",
   ]);
-
   const [imageList, setImageList] = useState([]);
-
   const [currentLetter, setCurrentLetter] = useState("a");
-
   const [toggle, setToggle] = useState("Hide");
+  const [error, setError] = useState(false);
+
 
   const handleLetterChange = (letter) => {
     initGame(letter);
@@ -168,6 +167,14 @@ export default function CircleLetterGame() {
     if (lettersWithImages[currentLetter].indexOf(image.letter) !== -1) {
       image.value = true;
       setImageList([...imageList], image);
+    }
+    else
+    {
+      setError(true);
+
+      setTimeout(() => {
+        setError(false)
+      }, 1000);
     }
 
     console.log(imageList);
@@ -337,6 +344,7 @@ export default function CircleLetterGame() {
                 height={200}
                 onClick={() => checkAnswer(image)}
               />
+
               {toggle === "Show" && (
                 <Box sx={{ fontWeight: "bold", fontSize: "1.4em" }}>
                   {words[image.letter]}
@@ -346,6 +354,24 @@ export default function CircleLetterGame() {
           </Grid>
         ))}
       </Grid>
+
+      {error && (
+        <Box>
+          <img
+            src="./imgs/wrong.png"
+            alt="worngAnswer"
+            width={"70%"}
+            style={{
+              position: "absolute",
+              margin: "auto",
+              left: 0,
+              right: 0,
+              bottom: 0,
+              top: 0,
+            }}
+          />
+        </Box>
+      )}
     </>
   );
 }

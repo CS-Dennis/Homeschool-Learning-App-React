@@ -151,7 +151,6 @@ export default function CircleLetterGame() {
     }
 
     setImageList([...tempList]);
-    console.log(tempList);
   };
 
   const toggleWords = () => {
@@ -163,7 +162,6 @@ export default function CircleLetterGame() {
   };
 
   const checkAnswer = (image) => {
-    console.log(image);
     if (lettersWithImages[currentLetter].indexOf(image.letter) !== -1) {
       image.value = true;
       setImageList([...imageList], image);
@@ -177,7 +175,6 @@ export default function CircleLetterGame() {
       }, 1000);
     }
 
-    console.log(imageList);
     let answerCount = 0;
     imageList.forEach((img) => {
       if (img.value === true) {

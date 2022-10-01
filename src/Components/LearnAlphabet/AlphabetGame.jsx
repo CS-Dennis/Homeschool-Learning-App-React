@@ -1,18 +1,10 @@
-import {
-  Box,
-  Button,
-  Divider,
-  Grid,
-  Slider,
-  Snackbar,
-} from "@mui/material";
+import { Box, Button, Divider, Grid, Slider, Snackbar } from "@mui/material";
 import React, { useState } from "react";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import Header from "../Header";
 import { Link } from "react-router-dom";
 
 export default function AlphabetGame() {
-
   const [level, setLevel] = useState(1);
   function changeLevel(e) {
     setLevel(e.target.value);
@@ -20,7 +12,7 @@ export default function AlphabetGame() {
 
   const [bingo, setBingo] = useState(false);
   const [congrats, setCongrats] = useState(false);
-  const [niceTry, setNiceTry] = useState(false);
+  const [error, setError] = useState(false);
 
   const allLetters = [
     { index: 0, letter: "a" },
@@ -344,10 +336,10 @@ export default function AlphabetGame() {
         }, 1500);
       }
     } else {
-      setNiceTry(true);
+      setError(true);
 
       setTimeout(() => {
-        setNiceTry(false);
+        setError(false);
       }, 1000);
       return;
     }
@@ -431,7 +423,11 @@ export default function AlphabetGame() {
                       {gameLetter.letter !== "" ? (
                         <span>({gameLetter.letter})</span>
                       ) : (
-                        <img className="cat" src="./imgs/cat.png" alt="cat"></img>
+                        <img
+                          className="cat"
+                          src="./imgs/cat.png"
+                          alt="cat"
+                        ></img>
                       )}
                     </div>
                   </Box>
@@ -480,56 +476,62 @@ export default function AlphabetGame() {
 
       {/* Bingo Logo */}
       {bingo && (
-        <img
-          src="./imgs/bingo.gif"
-          alt="bingo"
-          style={{
-            height: "auto",
-            width: "30%",
-            position: "fixed",
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            margin: "auto",
-          }}
-        />
+        <Box>
+          <img
+            src="./imgs/bingo.gif"
+            alt="bingo"
+            style={{
+              maxHeight: "80%",
+              maxWidth: "100%",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              margin: "auto",
+            }}
+          />
+        </Box>
       )}
 
       {/* congrats logo */}
       {congrats && (
-        <img
-          src="./imgs/congrats.gif"
-          alt="congrats"
-          style={{
-            height: "auto",
-            width: "30%",
-            position: "fixed",
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            margin: "auto",
-          }}
-        />
+        <Box>
+          <img
+            src="./imgs/congrats.gif"
+            alt="congrats"
+            style={{
+              maxHeight: "80%",
+              maxWidth: "100%",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              margin: "auto",
+            }}
+          />
+        </Box>
       )}
 
       {/* nice try logo */}
-      {niceTry && (
-        <img
-          src="./imgs/wrong.png"
-          alt="incorrect"
-          style={{
-            height: "auto",
-            width: "30%",
-            position: "fixed",
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            margin: "auto",
-          }}
-        />
+      {error && (
+        <Box>
+          <img
+            src="./imgs/wrong.png"
+            alt="incorrect"
+            style={{
+              maxHeight: "80%",
+              maxWidth: "100%",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              margin: "auto",
+            }}
+          />
+        </Box>
       )}
     </>
   );

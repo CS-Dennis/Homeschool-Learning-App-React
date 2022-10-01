@@ -145,62 +145,53 @@ export default function CircleLetterGame() {
     const randomSixNums = randomNumList(6);
     const tempList = [];
     for (let i = 0; i < 6; i += 1) {
-      tempList.push({letter: rightImageList[randomSixNums[i] - 1], value: false});
+      tempList.push({
+        letter: rightImageList[randomSixNums[i] - 1],
+        value: false,
+      });
     }
 
-    
     setImageList([...tempList]);
     console.log(tempList);
   };
 
-  const toggleWords = ()=>
-  {
-    if(toggle==="Hide")
-    {
+  const toggleWords = () => {
+    if (toggle === "Hide") {
       setToggle("Show");
-    }
-    else{
+    } else {
       setToggle("Hide");
     }
-  }
+  };
 
-  const checkAnswer = (image)=>
-  {
+  const checkAnswer = (image) => {
     console.log(image);
-    if(lettersWithImages[currentLetter].indexOf(image.letter)!==-1)
-    {
+    if (lettersWithImages[currentLetter].indexOf(image.letter) !== -1) {
       image.value = true;
       setImageList([...imageList], image);
     }
 
     console.log(imageList);
     let answerCount = 0;
-    imageList.forEach(img => {
-      if(img.value===true)
-      {
-        answerCount+=1;
+    imageList.forEach((img) => {
+      if (img.value === true) {
+        answerCount += 1;
       }
     });
 
-    if(answerCount===3 && lettersWithImages[currentLetter].length>=3)
-    {
+    if (answerCount === 3 && lettersWithImages[currentLetter].length >= 3) {
+      startNewGame();
+    } else if (answerCount === lettersWithImages[currentLetter].length) {
       startNewGame();
     }
+  };
 
-    if(answerCount===lettersWithImages[currentLetter].length)
-    {
-      startNewGame();
-    }
-  }
-
-  const startNewGame = ()=>
-  {
+  const startNewGame = () => {
     // show image
 
     setTimeout(() => {
       initGame(currentLetter);
     }, 1000);
-  }
+  };
 
   useEffect(() => {
     initGame("a");
@@ -265,7 +256,9 @@ export default function CircleLetterGame() {
               bottom: 0,
             }}
           >
-            <Button variant="contained" onClick={toggleWords}>{toggle} Words</Button>
+            <Button variant="contained" onClick={toggleWords}>
+              {toggle} Words
+            </Button>
           </Box>
         </Grid>
 
@@ -283,31 +276,30 @@ export default function CircleLetterGame() {
             }}
           >
             <Paper sx={{ width: "90%", margin: "auto", left: 0, right: 0 }}>
-              {lettersWithImages[currentLetter].indexOf(image.letter) !== -1 && 
-                image.value &&
-              (
-                <svg
-                  version="1.0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="300"
-                  height="300"
-                  viewBox="0 0 700.000000 543.000000"
-                  preserveAspectRatio="xMidYMid meet"
-                  style={{
-                    position: "absolute",
-                    margin: "auto",
-                    left: 0,
-                    right: 0,
-                    top: "-30",
-                  }}
-                >
-                  <g
-                    transform="translate(0.000000,543.000000) scale(0.100000,-0.100000)"
-                    fill="#FE0051"
-                    stroke="none"
+              {lettersWithImages[currentLetter].indexOf(image.letter) !== -1 &&
+                image.value && (
+                  <svg
+                    version="1.0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="300"
+                    height="300"
+                    viewBox="0 0 700.000000 543.000000"
+                    preserveAspectRatio="xMidYMid meet"
+                    style={{
+                      position: "absolute",
+                      margin: "auto",
+                      left: 0,
+                      right: 0,
+                      top: "-30",
+                    }}
                   >
-                    <path
-                      d="M3490 5424 c-19 -2 -132 -13 -250 -25 -118 -11 -282 -34 -365 -51
+                    <g
+                      transform="translate(0.000000,543.000000) scale(0.100000,-0.100000)"
+                      fill="#FE0051"
+                      stroke="none"
+                    >
+                      <path
+                        d="M3490 5424 c-19 -2 -132 -13 -250 -25 -118 -11 -282 -34 -365 -51
             -485 -99 -752 -188 -1130 -378 -447 -225 -821 -508 -1105 -836 -117 -136 -154
             -187 -279 -388 -148 -236 -264 -508 -311 -722 -79 -367 -62 -710 55 -1061 51
             -155 107 -274 167 -359 108 -155 309 -370 479 -513 46 -39 33 -24 -46 55 -172
@@ -316,9 +308,9 @@ export default function CircleLetterGame() {
             78 540 96 955 96 223 0 382 -5 450 -13 314 -39 624 -98 825 -158 109 -32 140
             -39 105 -23 -14 6 -95 31 -180 55 -250 73 -526 123 -850 154 -112 11 -561 21
             -620 14z"
-                    ></path>
-                    <path
-                      d="M3340 5320 c-350 -32 -745 -133 -1062 -271 -247 -106 -538 -285 -744
+                      ></path>
+                      <path
+                        d="M3340 5320 c-350 -32 -745 -133 -1062 -271 -247 -106 -538 -285 -744
             -456 -191 -157 -424 -412 -551 -603 -161 -240 -272 -509 -310 -751 -24 -152
             -24 -456 1 -581 71 -365 296 -701 648 -966 155 -116 283 -185 581 -311 112
             -47 456 -160 592 -195 320 -80 772 -136 1100 -136 463 1 917 77 1410 237 581
@@ -331,26 +323,25 @@ export default function CircleLetterGame() {
             1519 21 173 43 270 93 402 100 266 274 533 506 777 548 575 1304 914 2152 966
             305 19 714 -24 902 -95 212 -80 588 -319 616 -393 16 -42 114 -67 153 -39 15
             11 8 19 -71 79 -320 242 -741 426 -1109 484 -118 18 -524 27 -664 14z"
-                    ></path>
-                    <path
-                      d="M5219 5169 c30 -10 56 -17 58 -15 5 5 -86 36 -101 35 -6 0 13 -9 43
+                      ></path>
+                      <path
+                        d="M5219 5169 c30 -10 56 -17 58 -15 5 5 -86 36 -101 35 -6 0 13 -9 43
             -20z"
-                    ></path>
-                  </g>
-                </svg>
-              )}
+                      ></path>
+                    </g>
+                  </svg>
+                )}
               <img
                 src={"./imgs/alphabets/" + image.letter + ".png"}
                 alt="letter"
                 height={200}
-                onClick={()=>checkAnswer(image)}
+                onClick={() => checkAnswer(image)}
               />
-              {
-                toggle==="Show" &&
+              {toggle === "Show" && (
                 <Box sx={{ fontWeight: "bold", fontSize: "1.4em" }}>
-                  {words[image]}
+                  {words[image.letter]}
                 </Box>
-              }
+              )}
             </Paper>
           </Grid>
         ))}

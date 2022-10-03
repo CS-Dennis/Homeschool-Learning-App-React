@@ -358,7 +358,7 @@ export default function CircleLetterGame() {
             src="./imgs/wrong.png"
             alt="worngAnswer"
             style={{
-              position: "absolute",
+              position: "fixed",
               margin: "auto",
               left: 0,
               right: 0,

@@ -70,13 +70,13 @@ export default function LearnAlphabet() {
         >
           <Link to="./circle-letter-game/">
             <IconButton variant="outlined" sx={{ transform: "scale(3)" }}>
-              <Box sx={{ height: "50px", width: "50px", position: 'relative', }}>
+              <Box sx={{ height: "50px", width: "50px", position: "relative" }}>
                 <img
                   alt="flashcard"
                   src="./imgs/alphabets/d.png"
                   height={50}
                   width={50}
-                  style={{position: 'absolute', left: 0, top: 0}}
+                  style={{ position: "absolute", left: 0, top: 0 }}
                 />
                 <svg
                   version="1.0"
@@ -85,7 +85,7 @@ export default function LearnAlphabet() {
                   height="100px"
                   viewBox="0 0 700.000000 543.000000"
                   preserveAspectRatio="xMidYMid meet"
-                  style={{position: 'absolute', left: -15, top: -20}}
+                  style={{ position: "absolute", left: -15, top: -20 }}
                 >
                   <g
                     transform="translate(0.000000,543.000000) scale(0.100000,-0.100000)"
@@ -130,6 +130,21 @@ export default function LearnAlphabet() {
           <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>
             Circle Letter Game
           </Box>
+        </Grid>
+
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          md={4}
+          sx={{ textAlign: "center", marginTop: "100px" }}
+        >
+          <Link to="./maze-game">
+            <IconButton variant="outlined" sx={{ transform: "scale(3)" }}>
+              <img alt="maze" src="./imgs/maze.png" height={50} />
+            </IconButton>
+          </Link>
+          <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>Maze Game</Box>
         </Grid>
       </Grid>
     </>

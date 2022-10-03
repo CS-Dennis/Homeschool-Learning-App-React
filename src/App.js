@@ -5,6 +5,7 @@ import AlphabetFlashCards from './Components/LearnAlphabet/AlphabetFlashCards';
 import AlphabetGame from './Components/LearnAlphabet/AlphabetGame';
 import CircleLetterGame from './Components/LearnAlphabet/CircleLetterGame';
 import LearnAlphabet from './Components/LearnAlphabet/LearnAlphabet';
+import MazeGame from './Components/LearnAlphabet/MazeGame';
 import NumbersGame from './Components/LearnNumbers/NumbersGame';
 
 
@@ -18,6 +19,7 @@ function App() {
           <Route path='/learn-alphabet/alphabet-game' element={<AlphabetGame />} />
           <Route path='/learn-alphabet/alphabet-flashcards' element={<AlphabetFlashCards />} />
           <Route path='/learn-alphabet/circle-letter-game' element={<CircleLetterGame />} />
+          <Route path='/learn-alphabet/maze-game' element={<MazeGame />} />
           
           <Route path='/learn-numbers' element={<NumbersGame />} />
         </Routes>

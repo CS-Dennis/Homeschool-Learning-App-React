@@ -523,7 +523,7 @@ export default function AlphabetGame() {
             style={{
               maxHeight: "80%",
               maxWidth: "100%",
-              position: "absolute",
+              position: "fixed",
               left: 0,
               right: 0,
               top: 0,

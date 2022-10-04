@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Homeschool-Learning-App-React/static/css/main.cfa26bff.css",
-    "main.js": "/Homeschool-Learning-App-React/static/js/main.3cb64e0f.js",
+    "main.js": "/Homeschool-Learning-App-React/static/js/main.b430922d.js",
     "static/media/Comfortaa_Regular.ttf": "/Homeschool-Learning-App-React/static/media/Comfortaa_Regular.80953f5ca18baa2cac23.ttf",
     "static/media/Comfortaa_Bold.ttf": "/Homeschool-Learning-App-React/static/media/Comfortaa_Bold.2890d5857ce137df34b5.ttf",
     "index.html": "/Homeschool-Learning-App-React/index.html",
     "main.cfa26bff.css.map": "/Homeschool-Learning-App-React/static/css/main.cfa26bff.css.map",
-    "main.3cb64e0f.js.map": "/Homeschool-Learning-App-React/static/js/main.3cb64e0f.js.map"
+    "main.b430922d.js.map": "/Homeschool-Learning-App-React/static/js/main.b430922d.js.map"
   },
   "entrypoints": [
     "static/css/main.cfa26bff.css",
-    "static/js/main.3cb64e0f.js"
+    "static/js/main.b430922d.js"
   ]
 }

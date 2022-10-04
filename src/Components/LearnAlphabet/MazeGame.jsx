@@ -426,7 +426,7 @@ export default function MazeGame() {
         </Grid>
       </Grid>
 
-      <Grid container sx={{width: '90%', margin:'auto', left:0, right:0, marginTop: "50px", marginBottom: "50px"}}>
+      <Grid container sx={{width: '80%', margin:'auto', left:0, right:0, marginTop: "50px", marginBottom: "50px"}}>
         <Grid item md={2} lg={3}></Grid>
         <Grid
           item

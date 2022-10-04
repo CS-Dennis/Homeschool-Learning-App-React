@@ -32,6 +32,7 @@ export default function MazeGame() {
       [0, 0],
       [9, 9],
     ],
+    logos:["tl", "bl"]
   };
 
   const maze2 = {
@@ -52,6 +53,7 @@ export default function MazeGame() {
       [0, 3],
       [9, 9],
     ],
+    logos:["tl", "bl"]
   };
 
   const maze3 = {
@@ -72,6 +74,7 @@ export default function MazeGame() {
       [0, 6],
       [9, 1],
     ],
+    logos:["tl", "bl"]
   };
 
   const maze4 = {
@@ -92,6 +95,7 @@ export default function MazeGame() {
       [2, 0],
       [0, 6],
     ],
+    logos:["l", "tl"]
   };
 
   const maze5 = {
@@ -112,6 +116,7 @@ export default function MazeGame() {
       [5, 0],
       [9, 7],
     ],
+    logos:["l", "bl"]
   };
 
   const maze6 = {
@@ -132,6 +137,7 @@ export default function MazeGame() {
       [9, 0],
       [0, 7],
     ],
+    logos:["l", "tl"]
   };
 
   const maze7 = {
@@ -152,6 +158,7 @@ export default function MazeGame() {
       [9, 1],
       [0, 6],
     ],
+    logos:["bl", "tl"]
   };
 
   const maze8 = {
@@ -172,6 +179,7 @@ export default function MazeGame() {
       [0, 3],
       [9, 4],
     ],
+    logos:["tl", "bl"]
   };
 
   const maze9 = {
@@ -192,6 +200,7 @@ export default function MazeGame() {
       [0, 7],
       [9, 7],
     ],
+    logos:["tl", "bl"]
   };
 
   const mazes = [maze1, maze2, maze3, maze4, maze5, maze6, maze7, maze8, maze9];
@@ -255,7 +264,7 @@ export default function MazeGame() {
   const [mazeStatus, setMazeStatus] = useState(initMazeStatus);
   const [stepCount, setStepCount] = useState(0);
   const [congrats, setCongrats] = useState(false);
-  const [wrong, setWrong] = useState(false)
+  const [wrong, setWrong] = useState(false);
 
   const checkTile = (num, row, col) => {
     // console.log(num);
@@ -295,16 +304,16 @@ export default function MazeGame() {
   };
 
   const [otherRandomLetters, setOtherRandomLetters] = useState([
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
 
   // generate 26 unique letters indexes randomly and remove the current letter index
@@ -327,15 +336,15 @@ export default function MazeGame() {
 
     // generated 10 by 25 random letter index array (not including the current letter)
     let tempList = [];
-    for (let index = 0; index < 10; index+=1) {
+    for (let index = 0; index < 10; index += 1) {
       tempList.push(generateOtherLetters());
     }
     setOtherRandomLetters([...tempList]);
 
     const randomList = randomNumList(9);
-    
+
     setCurrentMaze(mazes[randomList[0] - 1]);
-    // setCurrentMaze(mazes[0]);
+    // setCurrentMaze(mazes[5]);
     setStepCount(0);
   };
 
@@ -368,6 +377,7 @@ export default function MazeGame() {
           marginRight: "auto",
           left: 0,
           right: 0,
+          position: "relative",
         }}
       >
         <Grid item xs={12} sx={{ textAlign: "center" }}>
@@ -414,14 +424,16 @@ export default function MazeGame() {
             </Button>
           </Box>
         </Grid>
+      </Grid>
 
+      <Grid container sx={{width: '90%', margin:'auto', left:0, right:0, marginTop: "50px", marginBottom: "50px"}}>
         <Grid item md={2} lg={3}></Grid>
         <Grid
           item
           xs={12}
           md={8}
           lg={6}
-          sx={{ marginTop: "10px", marginBottom: "10px", cursor: "pointer" }}
+          sx={{ marginTop: "10px", marginBottom: "10px", cursor: "pointer",  }}
         >
           {currentMaze.maze.map((array, row) => (
             <Grid container>
@@ -429,12 +441,19 @@ export default function MazeGame() {
                 <Grid
                   item
                   xs
-                  sx={{ display: "block" }}
+                  sx={{ display: "block", position: 'relative' }}
                   onClick={() => checkTile(num, row, col)}
                 >
+                  {/* start point logo */}
+                  {(currentMaze.points[0][0] === row && currentMaze.points[0][1] === col)
+                    && (<img src="./imgs/dog17.png" alt="dog" width="80px" style={{position: "absolute", left :(currentMaze.logos[0]==='l'?"-65px":"-30px"), top:(currentMaze.logos[0]==='tl' && '-75px'), bottom: (currentMaze.logos[0]==="bl" && '-75px'), index: -10}} />)}
+                  {/* end point logo */}
+                  {(currentMaze.points[1][0] === row && currentMaze.points[1][1] === col)
+                    && (<img src="./imgs/bowl.png" alt="bowl" width="70px" style={{position: "absolute", left :"-30px", top:(currentMaze.logos[1]==='tl' && '-60px'), bottom: (currentMaze.logos[1]==="bl" && '-60px'), index: -10}} />)}
                   <Box
                     className={
                       "mazeTile " +
+                      // start or end points
                       ((currentMaze.points[0][0] === row &&
                         currentMaze.points[0][1] === col) ||
                       (currentMaze.points[1][0] === row &&
@@ -463,10 +482,14 @@ export default function MazeGame() {
                     >
                       {/* if num==1, show the current letter; otherwise, show random letters */}
                       {num === 1
-                        ? (currentLetterCase
+                        ? currentLetterCase
                           ? currentLetter.toUpperCase()
-                          : currentLetter)
-                        : (letters[otherRandomLetters[row][col]-1])}
+                          : currentLetter
+                        : currentLetterCase
+                        ? letters[
+                            otherRandomLetters[row][col] - 1
+                          ].toUpperCase()
+                        : letters[otherRandomLetters[row][col] - 1]}
                     </span>
                   </Box>
                 </Grid>

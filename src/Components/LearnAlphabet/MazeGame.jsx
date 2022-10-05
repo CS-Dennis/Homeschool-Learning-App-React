@@ -552,7 +552,7 @@ export default function MazeGame() {
             style={{
               position: "fixed",
               width: "50%",
-              height: "auto",
+              maxHeight: "90%",
               margin: "auto",
               left: 0,
               right: 0,
@@ -573,7 +573,7 @@ export default function MazeGame() {
             style={{
               position: "fixed",
               width: "50%",
-              height: "auto",
+              maxHeight: "90%",
               margin: "auto",
               left: 0,
               right: 0,

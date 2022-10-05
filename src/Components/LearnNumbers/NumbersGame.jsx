@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Box } from "@mui/system";
 import MatchNumberComp from "./MatchNumberComp";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFlip} from "swiper";
+import { EffectFlip } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-flip";
 import NumberFlashCard from "./NumberFlashCard";
@@ -20,13 +20,12 @@ export default function NumbersGame() {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ]);
 
-  const numbersGameHome = ()=>
-  {
+  const numbersGameHome = () => {
     setShowButtonGroup(true);
     setShowVideo(false);
     setShowFlashCard(false);
     setShowMatchGame(false);
-  }
+  };
 
   const startVideo = () => {
     setShowButtonGroup(false);
@@ -94,38 +93,85 @@ export default function NumbersGame() {
               </Link>
             </Grid>
 
-            <Grid item xs={12} sm={4} sx={{ textAlign: "center", marginTop: "100px" }}>
-              <IconButton variant="outlined" sx={{transform: 'scale(3)'}} onClick={() => startVideo()}>
+            <Grid
+              item
+              xs={12}
+              sm={4}
+              sx={{ textAlign: "center", marginTop: "100px" }}
+            >
+              <IconButton
+                variant="outlined"
+                sx={{ transform: "scale(3)" }}
+                onClick={() => startVideo()}
+              >
                 <img alt="flashcard" src="./imgs/video.png" height={50} />
               </IconButton>
-              <Box sx={{marginTop: "50px", fontSize: "1.4em"}}>Play Video</Box>
+              <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>
+                Play Video
+              </Box>
             </Grid>
 
-            <Grid item xs={12} sm={4} sx={{ textAlign: "center", marginTop: "100px" }}>
-              <IconButton variant="outlined" sx={{transform: 'scale(3)'}} onClick={() => startFlashCard()}>
+            <Grid
+              item
+              xs={12}
+              sm={4}
+              sx={{ textAlign: "center", marginTop: "100px" }}
+            >
+              <IconButton
+                variant="outlined"
+                sx={{ transform: "scale(3)" }}
+                onClick={() => startFlashCard()}
+              >
                 <img alt="flashcard" src="./imgs/flashcard.png" height={50} />
               </IconButton>
-              <Box sx={{marginTop: "50px", fontSize: "1.4em"}}>Flashcards</Box>
+              <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>
+                Flashcards
+              </Box>
             </Grid>
 
-            <Grid item xs={12} sm={4} sx={{ textAlign: "center", marginTop: "100px" }}>
-              <IconButton variant="outlined" sx={{transform: 'scale(3)'}} onClick={() => startMatchGame()}>
+            <Grid
+              item
+              xs={12}
+              sm={4}
+              sx={{ textAlign: "center", marginTop: "100px" }}
+            >
+              <IconButton
+                variant="outlined"
+                sx={{ transform: "scale(3)" }}
+                onClick={() => startMatchGame()}
+              >
                 <img alt="flashcard" src="./imgs/puzzle.png" height={50} />
               </IconButton>
-              <Box sx={{marginTop: "50px", fontSize: "1.4em"}}>Match Numbers</Box>
+              <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>
+                Match Numbers
+              </Box>
+            </Grid>
+
+            <Grid
+              item
+              xs={12}
+              sm={4}
+              sx={{ textAlign: "center", marginTop: "100px" }}
+            >
+              <Link to="./maze-game">
+                <IconButton variant="outlined" sx={{ transform: "scale(3)" }}>
+                  <img alt="maze" src="./imgs/maze.png" height={50} />
+                </IconButton>
+              </Link>
+              <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>Maze Game</Box>
             </Grid>
           </>
         )}
         {showVideo && (
           <>
             <Grid item xs={12} sx={{ marginTop: "10px" }}>
-                <Button
-                  variant="outlined"
-                  startIcon={<KeyboardBackspaceRoundedIcon />}
-                  onClick={()=>numbersGameHome()}
-                >
-                  Back
-                </Button>
+              <Button
+                variant="outlined"
+                startIcon={<KeyboardBackspaceRoundedIcon />}
+                onClick={() => numbersGameHome()}
+              >
+                Back
+              </Button>
             </Grid>
             <Grid item xs={12} sx={{ textAlign: "center", paddingTop: "25px" }}>
               <h2>Watch Count and Move</h2>

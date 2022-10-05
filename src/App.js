@@ -6,6 +6,7 @@ import AlphabetGame from './Components/LearnAlphabet/AlphabetGame';
 import CircleLetterGame from './Components/LearnAlphabet/CircleLetterGame';
 import LearnAlphabet from './Components/LearnAlphabet/LearnAlphabet';
 import MazeGame from './Components/LearnAlphabet/MazeGame';
+import MazeNumberGame from './Components/LearnNumbers/MazeNumberGame';
 import NumbersGame from './Components/LearnNumbers/NumbersGame';
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/learn-alphabet/maze-game' element={<MazeGame />} />
           
           <Route path='/learn-numbers' element={<NumbersGame />} />
+          <Route path="/learn-numbers/maze-game" element={<MazeNumberGame />} />
         </Routes>
       </HashRouter>
     </>

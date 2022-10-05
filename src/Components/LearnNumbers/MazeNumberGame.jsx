@@ -1,19 +1,12 @@
-import {
-  Box,
-  Button,
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Select,
-} from "@mui/material";
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Header";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import { randomNumList } from "../util";
+import { Box } from "@mui/system";
 
-export default function MazeGame() {
+export default function MazeNumberGame() {
   const maze1 = {
     maze: [
       [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -205,48 +198,19 @@ export default function MazeGame() {
 
   const mazes = [maze1, maze2, maze3, maze4, maze5, maze6, maze7, maze8, maze9];
 
-  const letters = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
+  const numbers = [
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
 
-  const [currentLetter, setCurrentLetter] = useState("a");
+  const [currentNumber, setCurrentNumber] = useState(1);
 
-  const changeLetter = (letter) => {
-    setCurrentLetter(letter);
+  const changeNumber = (num) => {
+    setCurrentNumber(num);
   };
 
   const [currentMaze, setCurrentMaze] = useState(mazes[0]);
   // false lowercase, true uppercase
   const [currentLetterCase, setCurrentLetterCase] = useState(false);
-
-  const toggleLetterCase = () => {
-    setCurrentLetterCase(!currentLetterCase);
-  };
 
   const initMazeStatus = [
     [false, false, false, false, false, false, false, false, false, false],
@@ -303,7 +267,7 @@ export default function MazeGame() {
     }
   };
 
-  const [otherRandomLetters, setOtherRandomLetters] = useState([
+  const [otherRandomNumbers, setOtherRandomNumbers] = useState([
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -316,18 +280,18 @@ export default function MazeGame() {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
 
-  // generate 26 unique letters indexes randomly and remove the current letter index
-  const generateOtherLetters = () => {
-    let currentLetterIndex = letters.indexOf(currentLetter);
-    let otherLetters = randomNumList(26);
+  // generate 21 unique letters indexes randomly and remove the current number index
+  const generateOtherNumbers = () => {
+    let currentNumberIndex = numbers.indexOf(currentNumber);
+    let otherNumbers = randomNumList(21);
     let temp = [];
-    otherLetters.forEach((ele) => {
-      if (ele !== currentLetterIndex + 1) {
+    otherNumbers.forEach((ele) => {
+      if (ele !== currentNumberIndex + 1) {
         temp.push(ele);
       }
     });
-    otherLetters = temp;
-    return otherLetters;
+    otherNumbers = temp;
+    return otherNumbers;
   };
 
   const initGame = () => {
@@ -337,9 +301,9 @@ export default function MazeGame() {
     // generated 10 by 25 random letter index array (not including the current letter)
     let tempList = [];
     for (let index = 0; index < 10; index += 1) {
-      tempList.push(generateOtherLetters());
+      tempList.push(generateOtherNumbers());
     }
-    setOtherRandomLetters([...tempList]);
+    setOtherRandomNumbers([...tempList]);
 
     const randomList = randomNumList(9);
 
@@ -357,7 +321,7 @@ export default function MazeGame() {
       <Header title="Maze Game" />
       <Grid container sx={{ width: "95%", left: 0, right: 0, margin: "auto" }}>
         <Grid item xs={12} sx={{ marginTop: "10px" }}>
-          <Link to="/learn-alphabet/" style={{ textDecoration: "none" }}>
+          <Link to="/learn-numbers/" style={{ textDecoration: "none" }}>
             <Button
               variant="outlined"
               startIcon={<KeyboardBackspaceRoundedIcon />}
@@ -367,7 +331,7 @@ export default function MazeGame() {
           </Link>
         </Grid>
       </Grid>
-      
+
       <Grid
         container
         sx={{
@@ -392,36 +356,22 @@ export default function MazeGame() {
                 bottom: 0,
               }}
             >
-              Pick a letter
+              Pick a number
             </Box>
             <FormControl style={{ width: "100px", marginRight: "10px" }}>
               <InputLabel>Letter</InputLabel>
               <Select
-                value={currentLetter}
+                value={currentNumber}
                 label="Letter"
-                onChange={(e) => changeLetter(e.target.value)}
+                onChange={(e) => changeNumber(e.target.value)}
               >
-                {letters.map((letter, index) => (
-                  <MenuItem key={index} value={letter}>
-                    {currentLetterCase ? letter.toUpperCase() : letter}
+                {numbers.map((number, index) => (
+                  <MenuItem key={index} value={number}>
+                    {number}
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
-
-            <Button
-              variant="contained"
-              sx={{
-                height: "3em",
-                marginTop: "auto",
-                marginBottom: "auto",
-                top: 0,
-                bottom: 0,
-              }}
-              onClick={toggleLetterCase}
-            >
-              Toggle Case
-            </Button>
           </Box>
         </Grid>
       </Grid>
@@ -524,14 +474,7 @@ export default function MazeGame() {
                     >
                       {/* if num==1, show the current letter; otherwise, show random letters */}
                       {num === 1
-                        ? currentLetterCase
-                          ? currentLetter.toUpperCase()
-                          : currentLetter
-                        : currentLetterCase
-                        ? letters[
-                            otherRandomLetters[row][col] - 1
-                          ].toUpperCase()
-                        : letters[otherRandomLetters[row][col] - 1]}
+                        ? currentNumber : numbers[otherRandomNumbers[row][col] - 1]}
                     </span>
                   </Box>
                 </Grid>

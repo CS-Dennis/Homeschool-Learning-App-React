@@ -206,11 +206,10 @@ export default function MazeNumberGame() {
 
   const changeNumber = (num) => {
     setCurrentNumber(num);
+    initGame();
   };
 
   const [currentMaze, setCurrentMaze] = useState(mazes[0]);
-  // false lowercase, true uppercase
-  const [currentLetterCase, setCurrentLetterCase] = useState(false);
 
   const initMazeStatus = [
     [false, false, false, false, false, false, false, false, false, false],

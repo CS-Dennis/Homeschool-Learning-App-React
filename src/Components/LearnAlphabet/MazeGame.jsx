@@ -238,6 +238,7 @@ export default function MazeGame() {
 
   const changeLetter = (letter) => {
     setCurrentLetter(letter);
+    initGame();
   };
 
   const [currentMaze, setCurrentMaze] = useState(mazes[0]);

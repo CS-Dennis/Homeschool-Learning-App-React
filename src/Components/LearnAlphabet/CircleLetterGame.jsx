@@ -222,21 +222,30 @@ export default function CircleLetterGame() {
         <Grid
           item
           xs={12}
-          sx={{ marginTop: "10px", display: "flex", justifyContent: "center" }}
+          md={6}
+          sx={{ marginTop: "10px", textAlign: "center", display: 'inline-flex'}}
         >
           <Box
             sx={{
-              marginTop: "auto",
-              marginBottom: "auto",
+              margin: "auto",
               top: 0,
               bottom: 0,
-              marginRight: "10px",
+              left: 0,
+              right: 0,
             }}
           >
             <span className="subTitle">Pick a letter</span>
           </Box>
 
-          <Box>
+          <Box
+            sx={{
+              margin: "auto",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+            }}
+          >
             <FormControl sx={{ width: "200px" }}>
               <InputLabel id="demo-simple-select-label">Letter</InputLabel>
               <Select
@@ -247,19 +256,28 @@ export default function CircleLetterGame() {
                 onChange={(e) => handleLetterChange(e.target.value)}
               >
                 {letters.map((letter) => (
-                  <MenuItem value={letter}>{upperCase? letter.toUpperCase(): letter.toLowerCase()}</MenuItem>
+                  <MenuItem value={letter}>
+                    {upperCase ? letter.toUpperCase() : letter.toLowerCase()}
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>
           </Box>
+        </Grid>
 
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{ marginTop: "10px", textAlign: "center", display: 'inline-flex' }}
+        >
           <Box
             sx={{
-              marginLeft: "10px",
-              marginTop: "auto",
-              marginBottom: "auto",
+              margin: "auto",
               top: 0,
               bottom: 0,
+              left: 0,
+              right: 0,
             }}
           >
             <Button variant="contained" onClick={toggleWords}>
@@ -269,11 +287,11 @@ export default function CircleLetterGame() {
 
           <Box
             sx={{
-              marginLeft: "10px",
-              marginTop: "auto",
-              marginBottom: "auto",
+              margin: "auto",
               top: 0,
               bottom: 0,
+              left: 0,
+              right: 0,
             }}
           >
             <Button variant="contained" onClick={toggleCase}>

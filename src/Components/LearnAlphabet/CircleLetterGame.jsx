@@ -101,11 +101,11 @@ export default function CircleLetterGame() {
     "y",
     "z",
   ]);
+  const [upperCase, setUpperCase] = useState(false);
   const [imageList, setImageList] = useState([]);
   const [currentLetter, setCurrentLetter] = useState("a");
   const [toggle, setToggle] = useState("Hide");
   const [error, setError] = useState(false);
-
 
   const handleLetterChange = (letter) => {
     initGame(letter);
@@ -161,17 +161,19 @@ export default function CircleLetterGame() {
     }
   };
 
+  const toggleCase = () => {
+    setUpperCase(!upperCase);
+  };
+
   const checkAnswer = (image) => {
     if (lettersWithImages[currentLetter].indexOf(image.letter) !== -1) {
       image.value = true;
       setImageList([...imageList], image);
-    }
-    else
-    {
+    } else {
       setError(true);
 
       setTimeout(() => {
-        setError(false)
+        setError(false);
       }, 1000);
     }
 
@@ -220,21 +222,30 @@ export default function CircleLetterGame() {
         <Grid
           item
           xs={12}
-          sx={{ marginTop: "10px", display: "flex", justifyContent: "center" }}
+          md={6}
+          sx={{ marginTop: "10px", textAlign: "center", display: 'inline-flex'}}
         >
           <Box
             sx={{
-              marginTop: "auto",
-              marginBottom: "auto",
+              margin: "auto",
               top: 0,
               bottom: 0,
-              marginRight: "10px",
+              left: 0,
+              right: 0,
             }}
           >
             <span className="subTitle">Pick a letter</span>
           </Box>
 
-          <Box>
+          <Box
+            sx={{
+              margin: "auto",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+            }}
+          >
             <FormControl sx={{ width: "200px" }}>
               <InputLabel id="demo-simple-select-label">Letter</InputLabel>
               <Select
@@ -245,23 +256,46 @@ export default function CircleLetterGame() {
                 onChange={(e) => handleLetterChange(e.target.value)}
               >
                 {letters.map((letter) => (
-                  <MenuItem value={letter}>{letter}</MenuItem>
+                  <MenuItem value={letter}>
+                    {upperCase ? letter.toUpperCase() : letter.toLowerCase()}
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>
           </Box>
+        </Grid>
 
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{ marginTop: "10px", textAlign: "center", display: 'inline-flex' }}
+        >
           <Box
             sx={{
-              marginLeft: "10px",
-              marginTop: "auto",
-              marginBottom: "auto",
+              margin: "auto",
               top: 0,
               bottom: 0,
+              left: 0,
+              right: 0,
             }}
           >
             <Button variant="contained" onClick={toggleWords}>
               {toggle} Words
+            </Button>
+          </Box>
+
+          <Box
+            sx={{
+              margin: "auto",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+            }}
+          >
+            <Button variant="contained" onClick={toggleCase}>
+              Toggle Case
             </Button>
           </Box>
         </Grid>
@@ -344,7 +378,9 @@ export default function CircleLetterGame() {
 
               {toggle === "Show" && (
                 <Box sx={{ fontWeight: "bold", fontSize: "1.4em" }}>
-                  {words[image.letter]}
+                  {upperCase
+                    ? words[image.letter].toUpperCase()
+                    : words[image.letter].toLowerCase()}
                 </Box>
               )}
             </Paper>
@@ -364,8 +400,8 @@ export default function CircleLetterGame() {
               right: 0,
               bottom: 0,
               top: 0,
-              maxWidth: '70%',
-              maxHeight:'70%'
+              maxWidth: "70%",
+              maxHeight: "70%",
             }}
           />
         </Box>

@@ -206,7 +206,7 @@ export default function MazeNumberGame() {
 
   const changeNumber = (num) => {
     setCurrentNumber(num);
-    initGame();
+    initGame(num);
   };
 
   const [currentMaze, setCurrentMaze] = useState(mazes[0]);
@@ -280,8 +280,8 @@ export default function MazeNumberGame() {
   ]);
 
   // generate 21 unique letters indexes randomly and remove the current number index
-  const generateOtherNumbers = () => {
-    let currentNumberIndex = numbers.indexOf(currentNumber);
+  const generateOtherNumbers = (num) => {
+    let currentNumberIndex = numbers.indexOf(num);
     let otherNumbers = randomNumList(21);
     let temp = [];
     otherNumbers.forEach((ele) => {
@@ -293,14 +293,14 @@ export default function MazeNumberGame() {
     return otherNumbers;
   };
 
-  const initGame = () => {
+  const initGame = (num) => {
     // reset hightlighted tiles
     setMazeStatus(initMazeStatus);
 
     // generated 10 by 25 random letter index array (not including the current letter)
     let tempList = [];
     for (let index = 0; index < 10; index += 1) {
-      tempList.push(generateOtherNumbers());
+      tempList.push(generateOtherNumbers(num));
     }
     setOtherRandomNumbers([...tempList]);
 
@@ -312,7 +312,7 @@ export default function MazeNumberGame() {
   };
 
   useEffect(() => {
-    initGame();
+    initGame(0);
   }, []);
 
   return (

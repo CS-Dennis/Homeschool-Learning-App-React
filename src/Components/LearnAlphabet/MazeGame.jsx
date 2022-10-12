@@ -238,7 +238,7 @@ export default function MazeGame() {
 
   const changeLetter = (letter) => {
     setCurrentLetter(letter);
-    initGame();
+    initGame(letter);
   };
 
   const [currentMaze, setCurrentMaze] = useState(mazes[0]);
@@ -318,8 +318,8 @@ export default function MazeGame() {
   ]);
 
   // generate 26 unique letters indexes randomly and remove the current letter index
-  const generateOtherLetters = () => {
-    let currentLetterIndex = letters.indexOf(currentLetter);
+  const generateOtherLetters = (letter) => {
+    let currentLetterIndex = letters.indexOf(letter);
     let otherLetters = randomNumList(26);
     let temp = [];
     otherLetters.forEach((ele) => {
@@ -331,14 +331,14 @@ export default function MazeGame() {
     return otherLetters;
   };
 
-  const initGame = () => {
+  const initGame = (letter) => {
     // reset hightlighted tiles
     setMazeStatus(initMazeStatus);
 
     // generated 10 by 25 random letter index array (not including the current letter)
     let tempList = [];
     for (let index = 0; index < 10; index += 1) {
-      tempList.push(generateOtherLetters());
+      tempList.push(generateOtherLetters(letter));
     }
     setOtherRandomLetters([...tempList]);
 
@@ -350,7 +350,7 @@ export default function MazeGame() {
   };
 
   useEffect(() => {
-    initGame();
+    initGame('a');
   }, []);
 
   return (

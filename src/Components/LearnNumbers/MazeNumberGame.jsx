@@ -251,7 +251,7 @@ export default function MazeNumberGame() {
           // init game
           setTimeout(() => {
             setCongrats(false);
-            initGame();
+            initGame(currentNumber);
           }, 1500);
         }
       }

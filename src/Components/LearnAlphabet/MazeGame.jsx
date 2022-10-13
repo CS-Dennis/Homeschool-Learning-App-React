@@ -289,7 +289,7 @@ export default function MazeGame() {
           // init game
           setTimeout(() => {
             setCongrats(false);
-            initGame();
+            initGame(currentLetter);
           }, 1500);
         }
       }

@@ -40,7 +40,7 @@ export default function LearnAlphabet() {
         >
           <Link to="./alphabet-flashcards/">
             <IconButton variant="outlined" sx={{ transform: "scale(3)" }}>
-              <img alt="flashcard" src="./imgs/flashcard.png" height={50} />
+              <img alt="flashcard" src={process.env.PUBLIC_URL + "/imgs/flashcard.png"} height={50} />
             </IconButton>
           </Link>
           <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>Flashcards</Box>
@@ -55,7 +55,7 @@ export default function LearnAlphabet() {
         >
           <Link to="./alphabet-game/">
             <IconButton variant="outlined" sx={{ transform: "scale(3)" }}>
-              <img alt="flashcard" src="./imgs/alphabetGame.png" height={50} />
+              <img alt="flashcard" src={process.env.PUBLIC_URL + "/imgs/alphabetGame.png"} height={50} />
             </IconButton>
           </Link>
           <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>Alphabet Game</Box>
@@ -73,7 +73,7 @@ export default function LearnAlphabet() {
               <Box sx={{ height: "50px", width: "50px", position: "relative" }}>
                 <img
                   alt="flashcard"
-                  src="./imgs/alphabets/d.png"
+                  src={process.env.PUBLIC_URL + "/imgs/alphabets/d.png"}
                   height={50}
                   width={50}
                   style={{ position: "absolute", left: 0, top: 0 }}
@@ -141,7 +141,7 @@ export default function LearnAlphabet() {
         >
           <Link to="./maze-game">
             <IconButton variant="outlined" sx={{ transform: "scale(3)" }}>
-              <img alt="maze" src="./imgs/maze.png" height={50} />
+              <img alt="maze" src={process.env.PUBLIC_URL + "/imgs/maze.png"} height={50} />
             </IconButton>
           </Link>
           <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>Maze Game</Box>

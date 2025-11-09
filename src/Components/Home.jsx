@@ -29,7 +29,7 @@ export default function Home() {
                 right: 0,
                 backgroundColor: "red",
               }}
-              image="./imgs/ABC.jpeg"
+              image={process.env.PUBLIC_URL + "/imgs/ABC.jpeg"}
               alt="ABC Learning"
             />
             <CardContent>Learning ABC</CardContent>
@@ -61,7 +61,7 @@ export default function Home() {
                 right: 0,
                 backgroundColor: "red",
               }}
-              image="./imgs/numbers.jpg"
+              image={process.env.PUBLIC_URL + "/imgs/numbers.jpg"}
               alt="ABC Learning"
             />
             <CardContent>Learning 1 to 20</CardContent>

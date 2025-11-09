@@ -104,7 +104,7 @@ export default function NumbersGame() {
                 sx={{ transform: "scale(3)" }}
                 onClick={() => startVideo()}
               >
-                <img alt="flashcard" src="./imgs/video.png" height={50} />
+                <img alt="flashcard" src={process.env.PUBLIC_URL + "/imgs/video.png"} height={50} />
               </IconButton>
               <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>
                 Play Video
@@ -122,7 +122,7 @@ export default function NumbersGame() {
                 sx={{ transform: "scale(3)" }}
                 onClick={() => startFlashCard()}
               >
-                <img alt="flashcard" src="./imgs/flashcard.png" height={50} />
+                <img alt="flashcard" src={process.env.PUBLIC_URL + "/imgs/flashcard.png"} height={50} />
               </IconButton>
               <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>
                 Flashcards
@@ -140,7 +140,7 @@ export default function NumbersGame() {
                 sx={{ transform: "scale(3)" }}
                 onClick={() => startMatchGame()}
               >
-                <img alt="flashcard" src="./imgs/puzzle.png" height={50} />
+                <img alt="flashcard" src={process.env.PUBLIC_URL + "/imgs/puzzle.png"} height={50} />
               </IconButton>
               <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>
                 Match Numbers
@@ -155,7 +155,7 @@ export default function NumbersGame() {
             >
               <Link to="./maze-game">
                 <IconButton variant="outlined" sx={{ transform: "scale(3)" }}>
-                  <img alt="maze" src="./imgs/maze.png" height={50} />
+                  <img alt="maze" src={process.env.PUBLIC_URL + "/imgs/maze.png"} height={50} />
                 </IconButton>
               </Link>
               <Box sx={{ marginTop: "50px", fontSize: "1.4em" }}>Maze Game</Box>

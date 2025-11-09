@@ -8,7 +8,7 @@ export default function NumberFlashCard({ number }) {
       images.push(
         <img
           alt="dog"
-          src={"./imgs/barbie" + number + ".jpg"}
+          src={process.env.PUBLIC_URL + "/imgs/barbie" + number + ".jpg"}
           style={{
             width: "100px",
             height: "100px",

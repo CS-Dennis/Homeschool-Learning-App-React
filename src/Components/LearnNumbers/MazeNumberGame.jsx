@@ -407,7 +407,7 @@ export default function MazeNumberGame() {
                   {currentMaze.points[0][0] === row &&
                     currentMaze.points[0][1] === col && (
                       <img
-                        src="./imgs/dog17.png"
+                        src={process.env.PUBLIC_URL + "/imgs/dog17.png"}
                         alt="dog"
                         width="80px"
                         style={{
@@ -424,7 +424,7 @@ export default function MazeNumberGame() {
                   {currentMaze.points[1][0] === row &&
                     currentMaze.points[1][1] === col && (
                       <img
-                        src="./imgs/bowl.png"
+                        src={process.env.PUBLIC_URL + "/imgs/bowl.png"}
                         alt="bowl"
                         width="70px"
                         style={{
@@ -488,7 +488,7 @@ export default function MazeNumberGame() {
       {congrats && (
         <Box>
           <img
-            src="./imgs/congrats.gif"
+            src={process.env.PUBLIC_URL + "/imgs/congrats.gif"}
             alt="abc"
             style={{
               position: "fixed",
@@ -509,7 +509,7 @@ export default function MazeNumberGame() {
       {wrong && (
         <Box>
           <img
-            src="./imgs/wrong.png"
+            src={process.env.PUBLIC_URL + "/imgs/wrong.png"}
             alt="abc"
             style={{
               position: "fixed",

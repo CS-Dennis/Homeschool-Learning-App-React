@@ -81,7 +81,7 @@ export default function MatchNumberComp() {
       divList.push(
         <img
           alt="dog"
-          src={"./imgs/barbie" + newDogImageNumber + ".jpg"}
+            src={process.env.PUBLIC_URL + "/imgs/barbie" + newDogImageNumber + ".jpg"}
           className="circleImg"
           style={{
             width: "100px",
@@ -172,7 +172,7 @@ export default function MatchNumberComp() {
         <Box>
           <img
             alt="congrats"
-            src="./imgs/congrats.gif"
+            src={process.env.PUBLIC_URL + "/imgs/congrats.gif"}
             style={{
               position: "fixed",
               left: 0,
@@ -188,7 +188,7 @@ export default function MatchNumberComp() {
       {showWrong && (
         <Box>
           <img
-            src="./imgs/wrong.png"
+            src={process.env.PUBLIC_URL + "/imgs/wrong.png"}
             alt="wrong"
             style={{
               position: "fixed",

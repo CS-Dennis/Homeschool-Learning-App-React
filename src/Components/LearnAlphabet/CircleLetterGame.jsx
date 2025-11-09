@@ -370,7 +370,7 @@ export default function CircleLetterGame() {
                   </svg>
                 )}
               <img
-                src={"./imgs/alphabets/" + image.letter + ".png"}
+                src={process.env.PUBLIC_URL + "/imgs/alphabets/" + image.letter + ".png"}
                 alt="letter"
                 height={200}
                 onClick={() => checkAnswer(image)}
@@ -391,7 +391,7 @@ export default function CircleLetterGame() {
       {error && (
         <Box>
           <img
-            src="./imgs/wrong.png"
+            src={process.env.PUBLIC_URL + "/imgs/wrong.png"}
             alt="worngAnswer"
             style={{
               position: "fixed",

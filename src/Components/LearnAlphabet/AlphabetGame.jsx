@@ -425,7 +425,7 @@ export default function AlphabetGame() {
                       ) : (
                         <img
                           className="cat"
-                          src="./imgs/cat.png"
+                          src={process.env.PUBLIC_URL+"/imgs/cat.png"}
                           alt="cat"
                         ></img>
                       )}
@@ -478,7 +478,7 @@ export default function AlphabetGame() {
       {bingo && (
         <Box>
           <img
-            src="./imgs/bingo.gif"
+            src={process.env.PUBLIC_URL + "/imgs/bingo.gif"}
             alt="bingo"
             style={{
               maxHeight: "80%",
@@ -498,7 +498,7 @@ export default function AlphabetGame() {
       {congrats && (
         <Box>
           <img
-            src="./imgs/congrats.gif"
+            src={process.env.PUBLIC_URL + "/imgs/congrats.gif"}
             alt="congrats"
             style={{
               maxHeight: "80%",
@@ -518,7 +518,7 @@ export default function AlphabetGame() {
       {error && (
         <Box>
           <img
-            src="./imgs/wrong.png"
+            src={process.env.PUBLIC_URL + "/imgs/wrong.png"}
             alt="incorrect"
             style={{
               maxHeight: "80%",

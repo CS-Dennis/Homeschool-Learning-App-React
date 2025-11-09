@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Header";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
-import { randomNumList } from "../util";
+import { randomNumList } from "../../utils/util";
 
 export default function MazeGame() {
   const maze1 = {

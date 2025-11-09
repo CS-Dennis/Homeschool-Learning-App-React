@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/effect-flip";
 import { EffectFlip } from "swiper";
 import { Box } from "@mui/system";
-import { randomNumList } from "../util";
+import { randomNumList } from "../../utils/util";
 
 export default function AlphabetFlashCards() {
   const [deckValue, setDeckValue] = useState(0);
